@@ -14,6 +14,7 @@ class tablero {
         svg.setAttribute("width",1000);
         svg.setAttribute("heigth",1000);
 
+        tablero.appendChild(svg);
         document.body.appendChil(tablero);
     }
 }
