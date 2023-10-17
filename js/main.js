@@ -8,7 +8,6 @@ let territorio4 = new Territorio(800, 800, 20, terrrito4);
 
 
 
-
 let tablero = new Tablero(1200, 1200);
 
 tablero.crearTablero();
