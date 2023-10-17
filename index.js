@@ -1,15 +1,27 @@
+import { TERRITORIO } from "./modules/territorio.js";
+import { TABLERO } from "./modules/tablero.js";
 
+let españa = new TERRITORIO.territorio("españa");
+let gibraltar = new TERRITORIO.territorio("gibraltar");
+let italia = new TERRITORIO.territorio("italia");
+let inglaterra = new TERRITORIO.territorio("inglaterra");
 
-document.getElementById('circle1').onclick = function () {
-    console.log('hola');
-}
-document.getElementById('circle2').onclick = function () {
-    console.log('hola2');
+let territorios = [españa, gibraltar, italia, inglaterra];
+
+let tablero = new TABLERO.tablero(territorios);
+
+document.getElementById(españa.getName()).onclick = function () {
+    console.log(españa.getName())
 }
 
-document.getElementById('star1').onclick = function () {
-    console.log('estrella1');
+document.getElementById(gibraltar.getName()).onclick = function () {
+    console.log(gibraltar.getName())
 }
-document.getElementById('star2').onclick = function () {
-    console.log('estrellita');
+
+document.getElementById(italia.getName()).onclick = function () {
+    console.log(italia.getName())
+}
+
+document.getElementById(inglaterra.getName()).onclick = function () {
+    console.log(inglaterra.getName())
 }

@@ -1,7 +1,10 @@
-territorio = class {
+let TERRITORIO = {};
+
+TERRITORIO.territorio = class {
     constructor(name){
         this.name = name;
         this.neighbor = [];
+        this.site = null;
     }
     assignNeighbor(territorio){
         this.neighbor.push(territorio.getName());
@@ -11,7 +14,4 @@ territorio = class {
     }
 }
 
-let españa = new territorio(españa);
-let gibraltar = new territorio(gibraltar);
-let italia = new territorio(italia);
-let inglaterra = new territorio(inglaterra);
+export { TERRITORIO };
