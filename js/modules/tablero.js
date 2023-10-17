@@ -9,12 +9,12 @@ class Tablero {
 
     crearTablero() {
         let tablero = document.createElement("div");
-        tablero.setAttribute("width", this.ancho);
-        tablero.setAttribute("height", this.alto);
+        tablero.style.width = this.ancho + "px";
+        tablero.style.height = this.alto + "px";
 
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", 1000);
-        svg.setAttribute("heigth", 1000);
+        svg.setAttribute("width", "100%"); 
+        svg.setAttribute("height", "100%");
 
         this.territorios.forEach(function (territorio) {
             let circulo = document.createElementNS("http://www.w3.org/2000/svg", "circle")
