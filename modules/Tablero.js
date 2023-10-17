@@ -32,7 +32,6 @@ class Tablero {
       terr.setAttribute("stroke-width", this.territorios[i].strokeWidth);
       svg.appendChild(terr);
     }
-
     return svg;
   }
 }
