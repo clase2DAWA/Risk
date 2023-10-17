@@ -17,7 +17,7 @@ class Tablero {
         svg.setAttribute("heigth", 1000);
 
         this.territorios.forEach(function (territorio) {
-            let circulo = document.createAttributeNS("http://www.w3.org/2000/svg", "circle")
+            let circulo = document.createElementNS("http://www.w3.org/2000/svg", "circle")
             circulo.setAttributeNS(null, "cx", territorio.x);
             circulo.setAttributeNS(null, "cy", territorio.y);
             circulo.setAttributeNS(null, "r", territorio.radio);
@@ -29,7 +29,7 @@ class Tablero {
             svg.appendChild(circulo);
         });
         tablero.appendChild(svg);
-        document.body.appendChil(tablero);
+        document.body.appendChild(tablero);
     }
 }
 
