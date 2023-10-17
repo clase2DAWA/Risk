@@ -20,12 +20,11 @@ class tablero {
             circulo.setAttributeNS(null, "cy", territorio.y);
             circulo.setAttributeNS(null, "r", territorio.radio);
 
-            circulo.addEventListener("click", function (){
+            circulo.addEventListener("click", function () {
                 console.log(territorio.id);
             });
             svg.appendChild(circulo);
         });
-
         tablero.appendChild(svg);
         document.body.appendChil(tablero);
     }
