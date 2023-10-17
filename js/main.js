@@ -1,5 +1,5 @@
-import { Tablero } from "./modules/tablero";
-import { Territorio } from "./modules/tablero";
+import { Tablero } from "./modules/tablero.js";
+import { Territorio } from "./modules/tablero.js";
 
 let territorio1 = new Territorio(200, 200, 20, terrrito1);
 let territorio2 = new Territorio(800, 200, 20, terrrito2);

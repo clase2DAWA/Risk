@@ -1,4 +1,4 @@
-class territorio{
+class Territorio {
     constructor(x, y, radio, id) {
         this.x = x;
         this.y = y;
@@ -7,4 +7,4 @@ class territorio{
     }
 }
 
-export{Territorio}
+export { Territorio }

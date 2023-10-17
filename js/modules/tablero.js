@@ -1,4 +1,6 @@
-class tablero {
+import { Territorio } from "./territorio.js";
+
+class Tablero {
     constructor(territorios, ancho, alto) {
         this.territorios = territorios;
         this.ancho = ancho;
