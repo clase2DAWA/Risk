@@ -1,45 +1,50 @@
-import { Territorio } from "./territorio.js";
+import { Territory } from "./territorio.js";
 
 class Tablero {
-    constructor(territorios, ancho, alto) {
+    constructor(board) {
 
-        this.territorios = territorios;
-        this.ancho = ancho;
-        this.alto = alto;
+        this.board = board;
+        this.territories = [];
+
+        this.territories.push({
+            "posX": 0,
+            "posY": 0,
+            "territory": new Territory("Spain")
+
+        });
+        this.territories.push({
+            "posX": 0,
+            "posY": 0,
+            "territory": new Territory("Portugal")
+
+        });
+
+
+
 
     }
 
 
     dibujaMapa() {
-        let mapa = document.createElement("div");
-        mapa.setAttribute("width", this.ancho);
-        mapa.setAttribute("height", this.alto);
-
-        let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", "300");
-        svg.setAttribute("height", "300");
-       
-
-
-        this.territorios.forEach(function (territorio) {
+        let posX = 60;
+        let posY = 60;
+        for (let item of this.territories) {
             let circulo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            circulo.setAttributeNS(null, "cx", territorio.x);
-            circulo.setAttributeNS(null, "cy", territorio.y);
-            circulo.setAttributeNS(null, "r", territorio.radio);
-            circulo.setAttributeNS(null, "fill", territorio.fondo);
+            circulo.setAttributeNS(null, "cx", posX);
+            circulo.setAttributeNS(null, "cy", posY);
+            circulo.setAttributeNS(null, "r", 40);
+            circulo.setAttributeNS(null, "fill", "red");
 
             circulo.addEventListener("click", function () {
-                console.log(territorio.id);
+                console.log(item.territory.getName());
+            });
 
+            item.posX=posX;
+            item.posY=posY;
 
-            })
-
-            svg.appendChild(circulo);
-
-
-        });
-        mapa.appendChild(svg);
-        document.body.appendChild(mapa);
+            posX += 100;
+            this.board.appendChild(circulo);
+        }
     }
 
 }

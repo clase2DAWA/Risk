@@ -1,16 +1,18 @@
-class Territorio{
-    constructor(x,y,radio, id ,fondo){
-        this.x=x;
-        this.y=y;
-        this.radio=radio;
-        this.id=id;
-        this.fondo=fondo;
-
+class Territory{
+    constructor( name ) {
+        this.name = name;
+        this.army=0;
     }
+
+    getName(){
+        return this.name;
+    }
+
+
 
 
 
 
 }
 
-export{Territorio}
+export{ Territory }
