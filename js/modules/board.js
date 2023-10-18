@@ -65,17 +65,16 @@ class Board {
             //añadimos atributos a los circulos
             circle.setAttribute("cx", pos);
             circle.setAttribute("cy", 40);
-            circle.setAttribute("cx", 40);
+            circle.setAttribute("r", 40);
             circle.setAttribute("fill", "red");
             //superponemos los metadatos
             item.positionX = 40;
             item.positionY = 40;
             circle.addEventListener("click", function(){
-                console.log(item.territory.getName);
+                console.log(item.territory.getName());
             })
             //cambiar la posicion x
             pos += 100;
-
             //añadimos el circulo al tablero
             this.board.appendChild(circle);
         }
