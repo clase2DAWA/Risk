@@ -1,8 +1,8 @@
-import { BOARD } from './Board.js';
+import { RISK } from "./Board.js";
 
 const SVG = document.getElementById("map"); 
 
-const BOARD1 = new BOARD.board(1,900,1200);
+const BOARD1 = new RISK.board(1,900,1200);
 
 BOARD1.drawOnMap(SVG);
 

@@ -1,8 +1,7 @@
-import { COUNTRY } from './Country.js';
+import { RISK } from "./Game.js";
+import { RISK as COUNTRY } from "./Country.js";
 
-var BOARD = BOARD || {};
-
-BOARD.board = class {
+RISK.board = class {
 
     constructor(board,players,maxHeight,maxWidth) {
 
@@ -39,7 +38,7 @@ BOARD.board = class {
                 console.log(item.territory.getName());
             });
 
-            this.territories.posX = pos;
+            item.posX = pos;
             SVG.appendChild(circle);
             pos += 100;
         }
@@ -55,4 +54,6 @@ BOARD.board = class {
     }
 
 }
-export { BOARD }; 
+
+export { RISK };
+

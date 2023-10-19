@@ -1,6 +1,5 @@
-var COUNTRY = COUNTRY || {}
-
-    COUNTRY.country = class {
+import { RISK } from "./Game.js"
+    RISK.country = class {
 
         constructor (name) {
 
@@ -23,4 +22,4 @@ var COUNTRY = COUNTRY || {}
         }
     }
 
-export { COUNTRY }; 
+export { RISK };

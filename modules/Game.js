@@ -1,7 +1,6 @@
+var RISK = RISK || {};
 
-var GAME = GAME || {}
-
-GAME.game = class {
+RISK.game = class {
 
 
         constructor (){
@@ -15,4 +14,4 @@ GAME.game = class {
         }
 }
 
-export { GAME } ;
+export { RISK };
