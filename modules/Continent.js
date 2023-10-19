@@ -1,4 +1,4 @@
-import { COUNTRY } from './Country.js';
+/*import { COUNTRY } from './Country.js';
 
 var CONTINENT = CONTINENT || {}
 
@@ -27,3 +27,4 @@ CONTINENT.continent = class {
 }
 
 export { CONTINENT }; 
+*/

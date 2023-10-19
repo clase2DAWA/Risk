@@ -1,5 +1,3 @@
-import { Continent } from './Continent.js';
-import { Country } from './Country.js';
 
 var GAME = GAME || {}
 

@@ -1,36 +1,49 @@
-import { CONTINENT } from './Continent.js';
+import { COUNTRY } from './Country.js';
 
 var BOARD = BOARD || {};
 
 BOARD.board = class {
 
-    constructor(players,maxHeight,maxWidth) {
+    constructor(board,players,maxHeight,maxWidth) {
 
+        this.board = board;
         this.players = players;
         this.maxHeight = maxHeight;
         this.maxWidth = maxWidth;
-        this.continent = new CONTINENT.continent;
-
+        this.territories = [];
+        this.territories.push ({
+            "posX": 0,
+            "posY": 0,
+            "territory": new COUNTRY.country("Spain")
+        });
+        this.territories.push ({
+            "posX": 0,
+            "posY": 0,
+            "territory": new COUNTRY.country("Portugal")
+        });
     }
 
     drawOnMap(SVG) {
         
+        let pos = 40;
 
-        for (let i = 0; i < this.continent.countries.length; i++) {
-        
+        for (let item of this.territories) {
             
             let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             
-            circle.setAttribute("cy", this.getRandomMapHeight()); 
-            circle.setAttribute("cx", this.getRandomMapWidth()); 
-            circle.setAttribute("r", this.continent.countries[i].radio);   
+            circle.setAttribute("cy", 40); 
+            circle.setAttribute("cx", pos); 
+            circle.setAttribute("r", 40);   
             circle.setAttribute("fill", "brown"); 
-            circle.setAttribute("stroke","brown");
-            circle.setAttribute("stroke-width", 3);
-            
+            circle.addEventListener ("click" , () =>{
+                console.log(item.territory.getName());
+            });
+
+            this.territories.posX = pos;
             SVG.appendChild(circle);
+            pos += 100;
         }
-        
+                
     }
 
     getRandomMapHeight(){
