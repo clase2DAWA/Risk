@@ -1,7 +1,6 @@
-import { Tablero } from "./modules/Tablero.js";
+import { Board } from "./modules/board.js";
 
-var svg = document.getElementById("board");
-var tablero = new Tablero();
-tablero.setTerritorios(4, 50, 50, 50);
+var map = document.getElementById("board");
+var board = new Board(map);
 
-svg = tablero.drawTerritorios(svg);
+board.draw(map);
