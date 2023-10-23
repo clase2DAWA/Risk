@@ -85,17 +85,9 @@ let Board = class {
                         "posY": (((y + width) / 2) - r) / 2
                     });
                     /*Creamos pais nuevo */
-                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    circle.setAttribute('cx', posicionesPaises[0].posX);
-                    circle.setAttribute('cy', posicionesPaises[0].posY);
-                    circle.setAttribute('r', r);
-                    circle.setAttribute('fill', 'blue');
-                    circle.onclick = function () {
-                        console.log(item1.territory.getName())
-                    }
-                    item1.posX = pos;
-                    item1.posY = r;
-                    this.board.appendChild(circle);
+                    this.darwTerritory(posicionesPaises[0].posX, posicionesPaises[0].posY, item1.territory.getName());
+                    item1.posX = posicionesPaises[0].posX;
+                    item1.posY = posicionesPaises[0].posY;
                     /*Contador para posiciones */
                     let px = 1;
                     /*Recorremos vecinos */
@@ -121,15 +113,15 @@ let Board = class {
     }
 
     darwTerritory(x, y, name) {
-        let circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle2.setAttribute('cx', x);
-        circle2.setAttribute('cy', y);
-        circle2.setAttribute('r', 25);
-        circle2.setAttribute('fill', 'blue');
-        circle2.onclick = function () {
+        let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', x);
+        circle.setAttribute('cy', y);
+        circle.setAttribute('r', 25);
+        circle.setAttribute('fill', 'blue');
+        circle.onclick = function () {
             console.log(name);
         }
-        this.board.appendChild(circle2);
+        this.board.appendChild(circle);
     }
 }
 
