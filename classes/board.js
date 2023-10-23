@@ -90,7 +90,7 @@ class Board {
                     ]
                 }
             ]
-        };
+        }
     }
 
     drawBoard() {
