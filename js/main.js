@@ -14,6 +14,7 @@ let tablero = new Tablero(territorios ,1200, 1200);
 tablero.crearTablero();
 */
 
-let board = new Board(document.getElementById("board"));
-board.drawBoard();
+let boardElement = document.getElementById("board");
+let board = new Board(boardElement);
+board.drawBoard()
 
