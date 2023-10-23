@@ -6,7 +6,7 @@ class Board {
     this.territories = [];
 
     // Creamos un array de nombres de territorios
-    let territoryNames = ["Spain", "Portugal", "France", "Germany", "Italy", "Netherlands", "Belgium", "Switzerland", "Austria"];
+    let territoryNames = ["Portugal", "Spain", "France", "Germany", "Italy", "Netherlands", "Belgium", "Switzerland", "Austria"];
 
     let posx = 50;
     let posy = 50;
@@ -46,9 +46,9 @@ class Board {
       // Busca los vecinos en las direcciones arriba, abajo, izquierda y derecha
       let neighbors = [];
       if (row > 0) neighbors.push(i - numRows); // Vecino arriba
+      if (col < numCols - 1) neighbors.push(i + 1); // Vecino derecha
       if (row < numRows - 1) neighbors.push(i + numRows); // Vecino abajo
       if (col > 0) neighbors.push(i - 1); // Vecino izquierda
-      if (col < numCols - 1) neighbors.push(i + 1); // Vecino derecha
 
       item.neighbors = neighbors;
     }
@@ -65,7 +65,7 @@ class Board {
       this.board.appendChild(circle);
 
       circle.addEventListener("click", function () {
-        console.log(`${item.territory.getName()} sus vecinos son: ${item.neighbors.map(index => self.territories[index].territory.getName()).join(', ')}`);
+        console.log(`This territory is ${item.territory.getName()} and its neighbors are : ${item.neighbors.map(index => self.territories[index].territory.getName()).join(', ')}`);
       });
     }
   }
