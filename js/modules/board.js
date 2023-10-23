@@ -1,6 +1,4 @@
 import { Territory } from "./territory.js";
-import { Continent } from "./continent.js";
-
 /*
 class Tablero {
     constructor(territorios, ancho, alto) {
@@ -147,24 +145,23 @@ class Board {
 
     drawBoard() {
         let pos = 40;
-        for (let item of this.territories) {
-            //creamos el circulo svg
-            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            //añadimos atributos a los circulos
-            circle.setAttribute("cx", pos);
-            circle.setAttribute("cy", 40);
-            circle.setAttribute("r", 40);
-            circle.setAttribute("fill", "red");
-            //superponemos los metadatos
-            item.positionX = 40;
-            item.positionY = 40;
-            circle.addEventListener("click", function () {
-                console.log(item.territory.getName());
-            })
-            //cambiar la posicion x
-            pos += 100;
-            //añadimos el circulo al tablero
-            this.board.appendChild(circle);
+        for (let continent of miObjeto.continents) {
+            for (let territory of continent.territories) {
+                let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", pos);
+                circle.setAttribute("cy", 40);
+                circle.setAttribute("r", 40);
+                circle.setAttribute("fill", continent.color);
+                territory.positionX = 40;
+                territory.positionY = 40;
+
+                circle.addEventListener("click", function () {
+                    console.log(territory.territory.getName());
+                });
+
+                pos += 100;
+                this.board.appendChild(circle);
+            }
         }
     }
 }
