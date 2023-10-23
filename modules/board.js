@@ -20,6 +20,11 @@ let Board = class {
                     console.log("ya dibujado");
                     /*Comprobar que los vecinos esten dibujados*/
                     for (let item2 of item1.neighbor) {
+                        let pais = item.territories.find(({ name }) => name === item2.getName());
+                        if (pais.posX != 0 || pais.posY != 0) {
+                        } else {
+                            /*Imprimir vecino*/
+                        }
                     }
                 } else {
                     /*Area de un apis y sus vecinos */
@@ -96,15 +101,7 @@ let Board = class {
                     /*Recorremos vecinos */
                     for (let item2 of item1.neighbor) {
                         /* Creamos vecino*/
-                        let circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                        circle2.setAttribute('cx', posicionesPaises[px].posX);
-                        circle2.setAttribute('cy', posicionesPaises[px].posY);
-                        circle2.setAttribute('r', r);
-                        circle2.setAttribute('fill', 'blue');
-                        circle2.onclick = function () {
-                            console.log(item2.getName());
-                        }
-
+                        this.darwTerritory(posicionesPaises[px].posX, posicionesPaises[px].posY, item2.getName());
                         let pais = item.territories.find(({ name }) => name === item2.getName());
                         console.log(pais);
                         pais.posX = posicionesPaises[px].posX;
@@ -112,12 +109,27 @@ let Board = class {
                         console.log(item2.getName());
                         console.log(item2.posX);
                         px += 1;
-                        this.board.appendChild(circle2);
                     }
                     pos += (r + r) * 3 + 20;
                 }
             }
         }
+    }
+
+    compobarDisponibilidad() {
+
+    }
+
+    darwTerritory(x, y, name) {
+        let circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle2.setAttribute('cx', x);
+        circle2.setAttribute('cy', y);
+        circle2.setAttribute('r', 25);
+        circle2.setAttribute('fill', 'blue');
+        circle2.onclick = function () {
+            console.log(name);
+        }
+        this.board.appendChild(circle2);
     }
 }
 
