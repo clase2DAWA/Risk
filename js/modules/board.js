@@ -35,8 +35,8 @@ class Tablero {
 */
 class Board {
 
-    constructor(board) {
-        this.board = board;
+    constructor(boardElement) {
+        this.board = boardElement;
         /*
         this.territories = [];
         //añadimos un objeto con atributos al array (JSON)
@@ -55,14 +55,14 @@ class Board {
             "territory": new Territory("Portugal")
         })
         */
-        const miObjeto = {
+        this.miObjeto = {
             continents: [
                 {
                     continent: "Europa",
                     color: "Blue",
                     territories: [
                         {
-                            territory: new Territory("Western Europe"),
+                            name: new Territory("Western Europe"),
                             neighbours: [
                                 "North Africa",
                                 "Great Britain",
@@ -71,7 +71,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Great Britain"),
+                            name: new Territory("Great Britain"),
                             neighbours: [
                                 "Western Europe",
                                 "Iceland",
@@ -80,7 +80,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Iceland"),
+                            name: new Territory("Iceland"),
                             neighbours: [
                                 "Great Britain",
                                 "Greenland",
@@ -88,7 +88,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Scandinavia"),
+                            name: new Territory("Scandinavia"),
                             neighbours: [
                                 "Northern Europe",
                                 "Great Britain",
@@ -97,7 +97,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Ukraine"),
+                            name: new Territory("Ukraine"),
                             neighbours: [
                                 "Southern Europe",
                                 "Northern Europe",
@@ -108,7 +108,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Southern Europe"),
+                            name: new Territory("Southern Europe"),
                             neighbours: [
                                 "Egypt",
                                 "North Africa",
@@ -119,7 +119,7 @@ class Board {
                             ]
                         },
                         {
-                            territory: new Territory("Northern Europe"),
+                            name: new Territory("Northern Europe"),
                             neighbours: [
                                 "Southern Europe",
                                 "Western Europe",
@@ -135,7 +135,10 @@ class Board {
                     color: "Green",
                     territories: [
                         {
+                            name: new Territory("Prueba"),
+                            neighbours: [
 
+                            ]
                         }
                     ]
                 }
@@ -145,8 +148,9 @@ class Board {
 
     drawBoard() {
         let pos = 40;
-        for (let continent of miObjeto.continents) {
+        for (let continent of this.miObjeto.continents) {
             for (let territory of continent.territories) {
+                console.log(continent, territory);
                 let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 circle.setAttribute("cx", pos);
                 circle.setAttribute("cy", 40);
@@ -156,7 +160,7 @@ class Board {
                 territory.positionY = 40;
 
                 circle.addEventListener("click", function () {
-                    console.log(territory.territory.getName());
+                    console.log(territory.name.getName());
                 });
 
                 pos += 100;
