@@ -7,6 +7,7 @@ let Terrytory = class {
     assignNeighbor(terrytory) {
         this.neighbor.push(terrytory.getName());
     }
+    
     getName() {
         return this.name;
     }
