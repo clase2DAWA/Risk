@@ -87,7 +87,7 @@ class Board {
 
             circle.addEventListener("click", () => {
                 if (provincia && provincia.Territory) {
-                    console.log(`This territory is ${provincia.Territory.getName()} and its neighbors are : ${provincia.neighbor.map(index => self.Map[item].territories[index].Territory.getName()).join(', ')}`);
+                    console.log(`Territory: ${provincia.Territory.getName()} His neighbors: ${provincia.neighbor.map(index => self.Map[item].territories[index].Territory.getName()).join(', ')}`);
                 } else {
                     console.log("Territory information is missing.");
                 }
