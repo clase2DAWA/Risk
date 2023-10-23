@@ -1,4 +1,5 @@
 import { Territory } from "./territory.js";
+import { Continent } from "./continent.js";
 
 /*
 class Tablero {
@@ -38,8 +39,8 @@ class Board {
 
     constructor(board) {
         this.board = board;
+        /*
         this.territories = [];
-        
         //añadimos un objeto con atributos al array (JSON)
         let territory = new Territory("Spain")
         let objeto = {
@@ -55,13 +56,100 @@ class Board {
             "positionY": 0,
             "territory": new Territory("Portugal")
         })
+        */
+        const miObjeto = {
+            continents: [
+                {
+                    continent: "Europa",
+                    color: "Blue",
+                    territories: [
+                        {
+                            territory: new Territory("Western Europe"),
+                            neighbours: [
+                                "North Africa",
+                                "Great Britain",
+                                "Northern Europe",
+                                "Southern Europe"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Great Britain"),
+                            neighbours: [
+                                "Western Europe",
+                                "Iceland",
+                                "Scandinavia",
+                                "Norhern Europe"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Iceland"),
+                            neighbours: [
+                                "Great Britain",
+                                "Greenland",
+                                "Scandinavia"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Scandinavia"),
+                            neighbours: [
+                                "Northern Europe",
+                                "Great Britain",
+                                "Iceland",
+                                "Ukraine"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Ukraine"),
+                            neighbours: [
+                                "Southern Europe",
+                                "Northern Europe",
+                                "Scandinavia",
+                                "Ural",
+                                "Afghanistan",
+                                "Middle East"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Southern Europe"),
+                            neighbours: [
+                                "Egypt",
+                                "North Africa",
+                                "Western Europe",
+                                "Northern Europe",
+                                "Ukraine",
+                                "Middle East"
+                            ]
+                        },
+                        {
+                            territory: new Territory("Northern Europe"),
+                            neighbours: [
+                                "Southern Europe",
+                                "Western Europe",
+                                "Great Britain",
+                                "Scandinavia",
+                                "Ukraine"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    continent: "Asia",
+                    color: "Green",
+                    territories: [
+                        {
+
+                        }
+                    ]
+                }
+            ]
+        };
     }
 
     drawBoard() {
         let pos = 40;
         for (let item of this.territories) {
             //creamos el circulo svg
-            let circle =document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             //añadimos atributos a los circulos
             circle.setAttribute("cx", pos);
             circle.setAttribute("cy", 40);
@@ -70,7 +158,7 @@ class Board {
             //superponemos los metadatos
             item.positionX = 40;
             item.positionY = 40;
-            circle.addEventListener("click", function(){
+            circle.addEventListener("click", function () {
                 console.log(item.territory.getName());
             })
             //cambiar la posicion x
