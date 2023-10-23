@@ -37,7 +37,37 @@ let Board = class {
                 });
                 posicionesPaises.push({
                     "name": "pos2",
-                    "posX": (((y + width) / 2) / 2) * 3,
+                    "posX": pos +((width / 2) / 2) * 3,
+                    "posY": ((y + width) / 2) / 2
+                });
+                posicionesPaises.push({
+                    "name": "pos3",
+                    "posX": pos +((width / 2) / 2) * 3,
+                    "posY": (y + width) / 2
+                });
+                posicionesPaises.push({
+                    "name": "pos4",
+                    "posX": pos +((width / 2) / 2) * 3,
+                    "posY": (((y + width) / 2) / 2) *3
+                });
+                posicionesPaises.push({
+                    "name": "pos5",
+                    "posX": pos + (width / 2),
+                    "posY": (((y + width) / 2) / 2) *3
+                });
+                posicionesPaises.push({
+                    "name": "pos6",
+                    "posX": pos +(width / 2) / 2,
+                    "posY": (((y + width) / 2) / 2) *3
+                });
+                posicionesPaises.push({
+                    "name": "pos7",
+                    "posX": pos +(width / 2) / 2,
+                    "posY": (y + width) / 2
+                });
+                posicionesPaises.push({
+                    "name": "pos8",
+                    "posX": pos +(width / 2) / 2,
                     "posY": ((y + width) / 2) / 2
                 });
                 let centroX = pos + (width / 2);
@@ -54,7 +84,21 @@ let Board = class {
                 item1.posY = r;
                 this.board.appendChild(circle);
                 for (let item2 of item1.territory.neighbor) {
-                    console.log(item2);
+                    for (let pos of posicionesPaises) {
+                        const circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        console.log(pos.name);
+                        circle2.setAttribute('cx', pos.posX);
+                        circle2.setAttribute('cy', pos.posY);
+                        circle2.setAttribute('r', r);
+                        circle2.setAttribute('fill', 'yellow');
+                        circle2.onclick = function () {
+                            console.log(item2.getName())
+                        }
+                        this.board.appendChild(circle2);
+                    }
+
+                    item1.posX = pos;
+                    item1.posY = r;
                 }
                 pos += (r + r) * 3 + 20;
             }
