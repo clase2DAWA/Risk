@@ -4,22 +4,20 @@ class Board {
     constructor(board) {
         this.board = board;
         this.territories = [];
-        let territory = new Territory ("Spain")
         
         this.territories.push({
             "posx": 0,
             "posy": 0,
-            "territory": territory
-        })
+            "territory": new Territory ("Spain")
+        });
 
-        territory = new Territory ("Portugal");
-        let objeto = {
+        this.territories.push ({
             "posx": 0,
             "posy": 0,
-            "territory": territory
-        }
+            "territory": new Territory ("Portugal")
+        });
 
-        this.territories.push(objeto);
+        
     }
 
     drawBoard() {
