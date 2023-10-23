@@ -10,40 +10,49 @@ let Continent = class {
         this.territories.push({
             "posX": 0,
             "posY": 0,
-            "territory": spain
+            "territory": spain,
+            "name": "Spain",
+            "neighbor": []
         });
         let french = new Terrytory("French");
         this.territories.push({
             "posX": 0,
             "posY": 0,
-            "territory": french
+            "territory": french,
+            "name": "French",
+            "neighbor": []
         });
         let italy = new Terrytory("Italy");
         this.territories.push({
             "posX": 0,
             "posY": 0,
-            "territory": italy
+            "territory": italy,
+            "name": "Italy",
+            "neighbor": []
         });
         let portugal = new Terrytory("Portugal");
         this.territories.push({
             "posX": 0,
             "posY": 0,
-            "territory": portugal
+            "territory": portugal,
+            "name": "Portugal",
+            "neighbor": []
         });
+
         for (let item of this.territories) {
             if (item.territory.getName() == "Spain") {
-                item.territory.assignNeighbor(portugal);
-                item.territory.assignNeighbor(french);
+                item.neighbor.push(portugal);
+                item.neighbor.push(french);
             }
-            if (item.territory.getName() == "french") {
-                item.territory.assignNeighbor(spain);
-                item.territory.assignNeighbor(italy);
+            if (item.territory.getName() == "French") {
+                item.neighbor.push(spain);
+                item.neighbor.push(italy);
             }
-            if (item.territory.getName() == "portugal") {
-                item.territory.assignNeighbor(spain);
+            if (item.territory.getName() == "Portugal") {
+                item.neighbor.push(spain);
             }
-            if (item.territory.getName() == "italy") {
-                item.territory.assignNeighbor(french);
+            if (item.territory.getName() == "Italy") {
+                item.neighbor.push(french);
             }
             
         }
