@@ -42,7 +42,9 @@ class Board {
 
   draw2() {
     let circle;
-
+    // Dibujamos primero las lineas que unen los territorios para que no hayan problemas  con el evento de "click"
+    this.linkNeighbors();
+    // Dibujamos los territorios en su posicion correspondiente
     for (var continent in this.map) {
       for (let terr of this.map[continent].territories) {
         if (terr.x != 0) {
@@ -60,7 +62,6 @@ class Board {
         }
       }
     }
-    this.linkNeighbors();
   }
 
   linkNeighbors() {
