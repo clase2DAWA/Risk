@@ -33,42 +33,42 @@ let Board = class {
                 posicionesPaises.push({
                     "name": "pos1",
                     "posX": pos + (width / 2),
-                    "posY": ((y + width) / 2) / 2
+                    "posY": (((y + width) / 2) - r) / 2
                 });
                 posicionesPaises.push({
                     "name": "pos2",
-                    "posX": pos +((width / 2) / 2) * 3,
-                    "posY": ((y + width) / 2) / 2
+                    "posX": pos +(((width / 2) -r) / 2) * 5,
+                    "posY": (((y + width) / 2) - r) / 2
                 });
                 posicionesPaises.push({
                     "name": "pos3",
-                    "posX": pos +((width / 2) / 2) * 3,
+                    "posX": pos +(((width / 2) -r) / 2) * 5,
                     "posY": (y + width) / 2
                 });
                 posicionesPaises.push({
                     "name": "pos4",
-                    "posX": pos +((width / 2) / 2) * 3,
-                    "posY": (((y + width) / 2) / 2) *3
+                    "posX": pos +(((width / 2) -r) / 2) * 5,
+                    "posY": ((((y + width) / 2) - r) / 2) *5
                 });
                 posicionesPaises.push({
                     "name": "pos5",
                     "posX": pos + (width / 2),
-                    "posY": (((y + width) / 2) / 2) *3
+                    "posY": ((((y + width) / 2) - r) / 2) *5
                 });
                 posicionesPaises.push({
                     "name": "pos6",
-                    "posX": pos +(width / 2) / 2,
-                    "posY": (((y + width) / 2) / 2) *3
+                    "posX": pos +((width / 2) -r) / 2,
+                    "posY": ((((y + width) / 2) - r) / 2) *5
                 });
                 posicionesPaises.push({
                     "name": "pos7",
-                    "posX": pos +(width / 2) / 2,
+                    "posX": pos +((width / 2) -r) / 2,
                     "posY": (y + width) / 2
                 });
                 posicionesPaises.push({
                     "name": "pos8",
-                    "posX": pos +(width / 2) / 2,
-                    "posY": ((y + width) / 2) / 2
+                    "posX": pos +((width / 2) -r) / 2,
+                    "posY": (((y + width) / 2) - r) / 2
                 });
                 let centroX = pos + (width / 2);
                 let centroY = (y + width) / 2;
