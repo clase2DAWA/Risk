@@ -1,4 +1,4 @@
-import { Terrytory } from "./territory.js";
+import { Territory } from "./territory.js";
 
 let Continent = class {
     constructor() {

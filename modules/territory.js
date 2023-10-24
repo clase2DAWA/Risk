@@ -1,4 +1,4 @@
-let Terrytory = class {
+let Territory = class {
     constructor(name) {
         this.name = name;
         this.neighborTopLeft = null;
@@ -41,4 +41,4 @@ let Terrytory = class {
     }
 }
 
-export { Terrytory };
+export { Territory };
