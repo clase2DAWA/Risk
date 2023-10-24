@@ -37,7 +37,7 @@ let map = {
                 "left": null,
                 "right": "Southern Europe",
                 "bottomLeft": null,
-                "bottom": null,
+                "bottom": "Norht Africa",
                 "bottomRight": null,
 
 
@@ -72,9 +72,9 @@ let map = {
                 "top": "Northern Europe",
                 "topRight": null,
                 "left": "Westem Europe",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": null,
+                "right": "Middle East",
+                "bottomLeft": "Norht Africa",
+                "bottom": "Egypt",
                 "bottomRight": null,
 
             },
@@ -84,10 +84,10 @@ let map = {
                 "top": null,
                 "topRight": null,
                 "left": "Northern Europe",
-                "right": null,
+                "right": "Ural",
                 "bottomLeft": "Southern Europe",
-                "bottom": null,
-                "bottomRight": null,
+                "bottom": "Middle East",
+                "bottomRight": "Afghanistan",
 
             }
 
@@ -307,43 +307,43 @@ let map = {
                 "left": null,
                 "right": "Middle East",
                 "bottomLeft": null,
-                "bottom": "Eastem Australia",
+                "bottom": "East Africa",
                 "bottomRight": null,
 
 
             },
             {
-                "name": "Westerm Australia",
-                "topLeft": null,
-                "top": "Indonesia",
-                "topRight": "New Guinea",
-                "left": null,
+                "name": "East Africa",
+                "topLeft": "North Africa",
+                "top": "Egypt",
+                "topRight": "Middle East",
+                "left": "Congo",
                 "right": " Eastem Australia",
-                "bottomLeft": null,
+                "bottomLeft": "South Africa",
                 "bottom": null,
-                "bottomRight": null,
+                "bottomRight": "Madagascar",
 
 
             },
             {
-                "name": "Eastem Australia",
-                "topLeft": null,
-                "top": "New Guinea",
+                "name": "Congo",
+                "topLeft": "North Africa",
+                "top": null,
                 "topRight": null,
-                "left": "Westerm Australia",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Westerm Australia",
-                "topLeft": null,
-                "top": "Indonesia",
-                "topRight": "New Guinea",
                 "left": null,
-                "right": " Eastem Australia",
+                "right": "East Africa",
+                "bottomLeft": null,
+                "bottom": "South Africa",
+                "bottomRight": null,
+
+            },
+            {
+                "name": "South Africa",
+                "topLeft": null,
+                "top": "Congo",
+                "topRight": "East Africa",
+                "left": null,
+                "right": "Madagascar",
                 "bottomLeft": null,
                 "bottom": null,
                 "bottomRight": null,
@@ -351,11 +351,11 @@ let map = {
 
             },
             {
-                "name": "Eastem Australia",
-                "topLeft": null,
-                "top": "New Guinea",
+                "name": "Madagascar",
+                "topLeft": "East Africa",
+                "top": null,
                 "topRight": null,
-                "left": "Westerm Australia",
+                "left": "South Africa",
                 "right": null,
                 "bottomLeft": null,
                 "bottom": null,
@@ -363,7 +363,181 @@ let map = {
 
             }
         ]
-    }]
+    }
+        , {
+        "name": "South America",
+        "color": "pink",
+        "territories": [
+            {
+                "name": "Venezuela",
+                "topLeft": "Central America",
+                "top": null,
+                "topRight": null,
+                "left": null,
+                "right": null,
+                "bottomLeft": "Peru",
+                "bottom": "Brazil",
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Brazil",
+                "topLeft": null,
+                "top": "Venezuela",
+                "topRight": null,
+                "left": "Peru",
+                "right": "North Africa",
+                "bottomLeft": "Argentina",
+                "bottom": null,
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Peru",
+                "topLeft": null,
+                "top": "Venezuela",
+                "topRight": null,
+                "left": null,
+                "right": "Brazil",
+                "bottomLeft": null,
+                "bottom": "Argentina",
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Argentina",
+                "topLeft": "North Africa",
+                "top": "Peru",
+                "topRight": "Brazil",
+                "left": null,
+                "right": null,
+                "bottomLeft": null,
+                "bottom": null,
+                "bottomRight": null,
+
+            }
+        ]
+    }, {
+        "name": "Nothr America",
+        "color": "Yellow",
+        "territories": [
+            {
+                "name": "Central America",
+                "topLeft": null,
+                "top": "Westem US",
+                "topRight": "Eastem US",
+                "left": null,
+                "right": null,
+                "bottomLeft": null,
+                "bottom": "Venezuela",
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Westem US",
+                "topLeft": null,
+                "top": "Alberta",
+                "topRight": "Ontario",
+                "left": null,
+                "right": "Eastem US",
+                "bottomLeft": null,
+                "bottom": "Central America",
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Eastem US",
+                "topLeft": null,
+                "top": "Ontario",
+                "topRight": "Quebec",
+                "left": "Westem US",
+                "right": null,
+                "bottomLeft": "Central America",
+                "bottom": null,
+                "bottomRight": null,
+
+
+            },
+            {
+                "name": "Alberta",
+                "topLeft": "Alaska",
+                "top": "Northwest Territory",
+                "topRight": null,
+                "left": null,
+                "right": "Ontario",
+                "bottomLeft": null,
+                "bottom": "Westem US",
+                "bottomRight": null,
+
+            },
+            {
+                "name": "Ontario",
+                "topLeft": null,
+                "top": "Northwest Territory",
+                "topRight": "Greendland",
+                "left": "Alberta",
+                "right": "Quebec",
+                "bottomLeft": "Westem US",
+                "bottom": "Eastem US",
+                "bottomRight": null,
+
+            },
+            {
+                "name": "Quebec",
+                "topLeft": null,
+                "top": null,
+                "topRight": "Greendaland",
+                "left": "Ontario",
+                "right": null,
+                "bottomLeft": null,
+                "bottom": "Eastem US",
+                "bottomRight": null,
+
+            },
+            {
+                "name": "Alaska",
+                "topLeft": null,
+                "top": null,
+                "topRight": null,
+                "left": "Kamchatka",
+                "right": "NorthWest Territory",
+                "bottomLeft": null,
+                "bottom": null,
+                "bottomRight": "Alberta",
+
+            },
+            {
+                "name": "NorthWest Territory",
+                "topLeft": null,
+                "top": null,
+                "topRight": null,
+                "left": "Alaska",
+                "right": "Greenland",
+                "bottomLeft": null,
+                "bottom": "Alberta",
+                "bottomRight": "Ontario",
+
+            },
+            {
+                "name": "Greenland",
+                "topLeft": null,
+                "top": null,
+                "topRight": null,
+                "left": "NorthWest Territory",
+                "right": "Iceland",
+                "bottomLeft": "Ontario",
+                "bottom": "Quebec",
+                "bottomRight": null,
+
+            },
+        ]
+    },
+    ]
 }
 
 
