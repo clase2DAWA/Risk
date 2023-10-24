@@ -15,67 +15,67 @@ class Territory {
     }
 
     get bottom() {
-        return this._bottom;
+        return this.bottom;
     }
 
-    set bottom( value ) {
-        this._bottom = value;
+    set bottom( bottom ) {
+        this._bottom = bottom;
     }
 
     get bottomLeft() {
-        return this._bottomLeft;
+        return this.bottomLeft;
     }
 
-    set bottomLeft( value ) {
-        this._bottomLeft= value;
+    set bottomLeft( bottomLeft ) {
+        this._bottomLeft = bottomLeft;
     }  
 
     get bottomRight(){
-        return this._bottomRight;
+        return this.bottomRight;
     }
 
-    set bottomRight( value ) {
-        this._bottomRight = value;
+    set bottomRight( bottomRight ) {
+        this._bottomRight = bottomRight;
     }
 
     get left() {
-        return this._left;
+        return this.left;
     }
 
-    set left( value ) {
-        this._left = value;
+    set left( left ) {
+        this._left = left;
     }
 
     get right() { 
-        return this._right;
+        return this.right;
     }
 
-    set right( value ) {
-        this._right = value;
+    set right( right ) {
+        this._right = right;
     }
 
     get top() {
-        return this._top;
+        return this.top;
     }
 
-    set top( value ) {
-        this._top = value;
+    set top( top ) {
+        this._top = top;
     }
 
     get topLeft() {
-        return this._topLeft;
+        return this.topLeft;
     }
 
-    set topLeft( value ) {
-        this._topLeft = value;
+    set topLeft( topLeft ) {
+        this._topLeft = topLeft;
     }
 
     get topRight() {
-        return this._topRight;
+        return this.topRight;
     }
 
-    set topRight( value ) {
-        this._topRight = value;
+    set topRight( topRight ) {
+        this._topRight = topRight;
     }
 
     getname() {

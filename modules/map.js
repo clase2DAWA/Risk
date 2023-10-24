@@ -2,6 +2,7 @@ let map = {
     "continents": [
         {
         "name": "Europe",
+        "color": "green",
         "territories": [
             {
                 "name": "Western Europe",
