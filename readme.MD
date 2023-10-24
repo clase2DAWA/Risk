@@ -4,6 +4,8 @@
 
 This project is an implementation of the classic board game "Risk." It will allow players to engage in strategic warfare, control continents, deploy armies, and conquer territories. The game starts as a turn-based game with dice rolling mechanics, but the long-term vision is to evolve it into an asynchronous multiplayer experience.
 
+![image](https://github.com/clase2DAWA/Risk/blob/JoseDavidGarciaCorzo/assets/Screenshot.jpg)
+
 ## Table of Contents
 
 - [Features](#features)
