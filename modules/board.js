@@ -1,4 +1,5 @@
 import { Territory } from "./territory.js";
+import { map } from "./map.js";
 
 class Board {
     constructor(board) {
@@ -22,6 +23,18 @@ class Board {
            
         }
     }
+
+    search() {
+        for (let item of map.territories) {
+            if(){
+
+            }
+        }
+    }
+
+
+
+    /* Dibujar lineas entre paises
     drawLines() {
         let neighbor;
         for (let item of this.territories) {
@@ -34,6 +47,7 @@ class Board {
 
 
     }
+    */
 };
 
 export { Board };
