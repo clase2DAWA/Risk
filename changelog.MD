@@ -1,6 +1,10 @@
 # Changelog (CHANGELOG)
 
 ## Version 0.0.2 (2023-10-23)
+- Removed : Coordinates on each territory
+- Added : Neighbor position on each territory.
+
+## Version 0.0.2 (2023-10-23)
 - New Feature: New background and few titles/styles
 - New Feature: Added entire worldmap Data
 - New Feature: Added coordinates to entire worldmap + other relevant info
