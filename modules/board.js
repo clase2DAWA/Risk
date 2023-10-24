@@ -1,91 +1,72 @@
 import { Territory } from "./territory.js";
+import { map } from "./map.js";
 
 class Board {
     constructor(board) {
+
         this.board = board;
         this.territories = [];
 
-        // Creamos un array de nombres de territorios
-        let territoryNames = ["Spain", "Portugal", "France", "Germany", "Italy", "Austria", "Scotland", "Norway", "England"];
+        for (let item of map.continent) {
+            for (let territory of item.territories) {
+                this.territories.push(
+                    {
+                        "posX": 0,
+                        "posY": 0,
+                        "territory": new Territory(territory.name),
+                        "continentColor": item.color
+                    }
+                );
 
-        let posx = 50;
-        let posy = 50;
-
-        for (let name of territoryNames) {
-            this.territories.push({
-                "posx": posx,
-                "posy": posy,
-                "territory": new Territory(name),
-                "neighbors": [] // Inicialmente, no tiene vecinos
-            });
-
-            posx += 100;
-
-            // Si ya hemos alcanzado 3 territorios en una fila, pasamos a la siguiente fila
-            if (posx === 350) {
-                posx = 50;
-                posy += 100;
             }
-
-            // Luego, podemos definir los territorios vecinos para cada territorio
-            this.defineNeighbours();
         }
 
-
+        for (let item of map.continent) {
+            for (let territory of item.territories) {
+                this.search(territory.name).top = this.search(territory.top);
+                this.search(territory.name).topLeft = this.search(territory.topLeft);
+                this.search(territory.name).topRight = this.search(territory.topRight);
+                this.search(territory.name).left = this.search(territory.left);
+                this.search(territory.name).right = this.search(territory.right);
+                this.search(territory.name).bottomLeft = this.search(territory.bottomLeft);
+                this.search(territory.name).bottomRight = this.search(territory.bottomRight);
+                this.search(territory.name).bottom = this.search(territory.bottom);
+            }
+        }
+        console.log(this.territories)
     }
+
+    search(name) {
+        for (let item of this.territories) {
+            if (item.territory.getName() === name) {
+                return item.territory;
+            }
+        }
+    }
+
 
     drawBoard() {
-        const self = this;
+        let posX = 60;
+        let posY = 60;
         for (let item of this.territories) {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", posX);
+            circle.setAttribute("cy", posY);
+            circle.setAttribute("r", 40);
+            circle.setAttribute("fill", item.continentColor);
 
-            let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', item.posx);
-            circle.setAttribute('cy', item.posy);
-            circle.setAttribute('r', 40);
-            circle.setAttribute('fill', 'coral');
-            item.posx = 40;
-            item.posy = 40;
+            circle.addEventListener("click", function () {
+                console.log(item.territory.getName());
+            });
+
+            item.posX = posX;
+            item.posY = posY;
+
+            posX += 100;
             this.board.appendChild(circle);
-
-            circle.addEventListener('click', function () {
-                console.log(`This territory is ${item.territory.getName()} and its neighbors are : ${item.neighbors.map(index => self.territories[index].territory.getName()).join(', ')}`);            })
         }
     }
 
-    defineNeighbours() {
-        // Definir las dimensiones de la cuadrícula
-        const numRows = 3;
-        const numCols = 3;
-
-        for (let item of this.territories) {
-            let i = this.territories.indexOf(item); // Obtén el índice del elemento actual
-
-            let row = Math.floor(i / numRows);
-            let col = i % numCols;
-
-            // Busca los vecinos en las direcciones arriba, abajo, izquierda y derecha
-            let neighbors = [];
-
-            if (row > 0) {
-                neighbors.push(i - numRows); // Vecino arriba
-            }
-
-            if (col < numCols - 1) {
-                neighbors.push(i + 1); // Vecino derecha
-            }
-                
-            if (row < numRows - 1) {
-                neighbors.push(i + numRows); // Vecino abajo
-            }
-
-            if (col > 0) {
-                neighbors.push(i - 1); // Vecino izquierda
-            } 
-
-            item.neighbors = neighbors;
-        
-        }
-    }
 }
 
 
