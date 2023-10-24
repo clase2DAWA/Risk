@@ -16,9 +16,23 @@ class Board {
                 });
             }
         }
-        console.log(this.territories)
+        
         /* luego rellenas los objetos territorio con el json*/
-
+        for (let continent of map.continent) {
+            for(let territory of continent.territories){
+                let temp = this.search(territory.name);
+                    temp.name = territory.name;
+                    temp.top = territory.top;                    
+                    temp.topRight = territory.topRight;
+                    temp.topLeft = territory.topLeft;
+                    temp.left = territory.left;
+                    temp.right = territory.right;
+                    temp.bottom = territory.bottom;
+                    temp.bottomRight = territory.bottomRight;
+                    temp.bottomLeft = territory.bottomLeft;
+            }
+        }
+        console.log(this.territories);
     };
 
     draw() {
@@ -43,13 +57,11 @@ class Board {
 
     search(name) {
         for (let item of this.territories) {
-            if (item.territory.getName() === name) {
-                return item.territory;
+            if (item.name === name) {
+                return item;
             }
         }
     }
-
-
 
     /* Dibujar lineas entre paises
     drawLines() {
@@ -59,10 +71,7 @@ class Board {
             neighbor.setAttribute("x1", item.posX);
             neighbor.setAttribute("y1", item.posY);
             this.board.appendChild(neighbor);
-
         }
-
-
     }
     */
 };
