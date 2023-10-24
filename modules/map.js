@@ -1,7 +1,9 @@
-import { Territory } from "./territory";
+import { Territory } from "./territory.js";
 
 let map = {
-    "continent": "Europe",
+    "continent":[{
+    "name": "Europe",
+    "color": "blue",
     "territories": [
         {
             "name": "Great Britain",
@@ -12,7 +14,7 @@ let map = {
             "right": "Northern Europe",
             "bottom": "Western Europe",
             "bottomRight": null,
-            "bottomLeft": null
+            "bottomLeft": null,
         },
         {
             "name": "Western Europe",
@@ -82,6 +84,8 @@ let map = {
         }
 
     ]
+    }]
+    
 }
 
 export { map };
