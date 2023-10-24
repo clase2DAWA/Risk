@@ -9,5 +9,3 @@ let inglaterra = new Terrytory("inglaterra");
 let territorios = [españa, gibraltar, italia, inglaterra];
 
 let tablero = new Board(document.getElementById("board"));
-
-tablero.draw();

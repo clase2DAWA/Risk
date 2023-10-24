@@ -1,13 +1,11 @@
 import { Terrytory } from "./territory.js";
 import { Continent } from "./continents.js";
+import { map } from "./map.js";
 
 let Board = class {
     constructor(board) {
-        this.continents = [];
         this.board = board;
-        let europa = new Continent();
-        europa.europe();
-        this.continents.push(europa);
+        this.createTerritory(map);
     }
 
     draw() {
@@ -108,7 +106,15 @@ let Board = class {
         }
     }
 
-    compobarDisponibilidad() {
+    createTerritory(map) {
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                new Terrytory(territory.name);
+            }
+        }
+    }
+
+    setNeighborTopLeft(map){
 
     }
 
