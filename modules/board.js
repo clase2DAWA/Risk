@@ -1,78 +1,49 @@
 import { Territory } from "./Territories.js";
+import { Map } from "./Map.js";
 class Board {
     constructor(board) {
         this.board = board;
-        this.Map = {};
-        this.Andalucia = [];
-
-
-        this.Map = {
-            Andalucia: {
-                territories: [
-                    {
-                        "posx": 50,
-                        "posy": 50,
-                        "Territory": new Territory("Huelva"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 150,
-                        "posy": 50,
-                        "Territory": new Territory("Sevilla"),
-                        neighbor:[]
-                    },
-
-                    {
-                        "posx": 250,
-                        "posy": 50,
-                        "Territory": new Territory("Cadíz"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 50,
-                        "posy": 150,
-                        "Territory": new Territory("Malaga"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 150,
-                        "posy": 150,
-                        "Territory": new Territory("Cordoba"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 250,
-                        "posy": 150,
-                        "Territory": new Territory("Jaen"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 50,
-                        "posy": 250,
-                        "Territory": new Territory("Granada"),
-                        neighbor:[]
-                    },
-                    {
-                        "posx": 150,
-                        "posy": 250,
-                        "Territory": new Territory("Almeria"),
-                         neighbor:[]
-                    },
-                    {
-                        "posx": 250,
-                        "posy": 250,
-                        "Territory": new Territory("Salobreña"),
-                         neighbor:[]
-                    },
-
-                ]
+        this.Map = Map;
+        this.territories = [];
+        for (let item of this.Map) {
+            for (let provincia of item.Europe.territories) {
+            
+                this.territories.push( {  
+                    Territory: new Territory(provincia.Territory)
+                })
             }
-        };
-        this.setNeighbor();
+        }
+        for (let item of this.Map) {
+            for (let provincia of item.Europe.territories) {
+   
+             
+            this.search(provincia.Territory).top = this.search(provincia.top)
+            
+            
+         
+                  this.search(provincia.Territory).bottom = this.search(provincia.bottom);
+            
+          
+                this.search(provincia.Territory).right = this.search(provincia.right);
+            
+            
+                 this.search(provincia.Territory).left = this.search(provincia.left);
+            
+            
+                
+            
+            }
+            console.log(this.territories)
+        }
+       
     }
     
+    
+
+
+
     draw() {
-     
+     /*
         let self = this; // Guarda una referencia a "this"
 
     for (let item in this.Map) {
@@ -95,85 +66,18 @@ class Board {
         }
     }
         
-    }
-    setNeighbor() {
-        let numfilas = 3;
-        let numcolum = 3;
-        for (let item in this.Map) {
-            for (let provincia of this.Map[item].territories) {
-                let id = this.Map[item].territories.indexOf(provincia);
-    
-                let row = Math.floor(id / numfilas);
-                let col = id % numcolum;
-    
-                let neighbors = [];
-                if (row > 0) neighbors.push(id - numfilas);
-                if (col < numcolum - 1) neighbors.push(id + 1);
-                if (row < numfilas - 1) neighbors.push(id + numfilas);
-                if (col > 0) neighbors.push(id - 1);
-    
-                provincia.neighbor = neighbors;
-            }
+   */ }
+    search(name) {
+        for (let item of this.territories) {
+            
+          if (item.Territory.getName() === name) {
+           
+            return item.Territory;
+          }
         }
-    }
+      }
+    
+   
     
 }
 export { Board };
-/*
-MAL
-{
-    "posx": 0,
-    "posy": 0,
-    "andalucia": {
-        "huelva": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": huelva,
-            "neighbor": {"sevilla": sevilla,"cadiz": cadiz}
-        },
-        "sevilla": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": sevilla,
-            "neighbor": {"huelva": huelva,"cadiz": cadiz,"cordoba": cordoba,"malaga":malaga}
-        },
-
-        "cadiz": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": cadiz,
-            "neighbor": {"sevilla": sevilla,"malaga":malaga}
-        },
-        "malaga": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": malaga,
-            "neighbor": {"cadiz":cadiz, "sevilla":sevilla, "cordoba":cordoba, "granada":granada}
-        },
-        "cordoba": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": cordoba,
-            "neighbor": {"sevilla":sevilla, "malaga":malaga,"granada":granada,"jaen":jaen}
-        },
-        "jaen": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": jaen,
-            "neighbor": {"cordoba":cordoba,"granada": granada}
-        },
-        "granada": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": granada,
-            "neighbor": {"jaen":jaen,"almeria": almeria}
-        },
-        "almeria": {
-            "posx": 0,
-            "posy": 0,
-            "Territory": almeria,
-            "neighbor":{ "granada":granada}
-        },
-    }
-
-}*/
