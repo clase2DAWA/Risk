@@ -1,73 +1,111 @@
 import { Territory } from "./territorio.js";
 import { map } from "./map.js"
-class Tablero {
-    constructor(board) {
 
+class Tablero {
+
+    constructor(board) {
         this.board = board;
         this.territories = [];
-
-        for (let item of map.continent) {
+        this.prueba = [];
+        for (let item of map.continents) {
             for (let territory of item.territories) {
-                this.territories.push(
-                    {
-                        "posX": 0,
-                        "posY": 0,
-                        "territory": new Territory(territory.name),
-                        "continentColor":item.color
-                    }
-                );
-
+                console.log(territory.name);
+                this.territories.push({
+                    "posx": 0,
+                    "posy": 0,
+                    "territory": new Territory(territory.name),
+                    "visitado": false
+                });
             }
         }
 
-        for (let item of map.continent) {
+        for (let item of map.continents) {
             for (let territory of item.territories) {
-                this.search(territory.name).top=this.search(territory.top);
-                this.search(territory.name).topLeft=this.search(territory.topLeft);
-                this.search(territory.name).topRight=this.search(territory.topRight);
-                this.search(territory.name).left=this.search(territory.left);
-                this.search(territory.name).right=this.search(territory.right);
-                this.search(territory.name).bottomLeft=this.search(territory.bottomLeft);
-                this.search(territory.name).bottomRight=this.search(territory.bottomRight);
-                this.search(territory.name).bottom=this.search(territory.bottom);
+                for (let neighbor of territory.neighbors) {
+                    this.search(territory.name).territory.addNeighbor(neighbor);
+                }
             }
         }
         console.log(this.territories)
-
-
 
     }
 
     search(name) {
         for (let item of this.territories) {
             if (item.territory.getName() === name) {
-                return item.territory;
+                return item;
             }
         }
     }
 
+    neighborAvailable(territory) {
+        let pais = null;
+        for (let neighbor of territory.neighbors) {
+            console.log(neighbor)
+            console.log(this.search(neighbor.name));
+            console.log(!this.search(neighbor.name).visitado);
+            
+            if (!this.search(neighbor.name).visitado) {
+                pais = this.search(neighbor.name);
+            }
+        }
+        return pais;
 
-    dibujaMapa() {
-        let posX = 60;
-        let posY = 60;
+    }
+    draw() {
+
+        let territoriosDibujar = [];
+        this.territories[0].posx=300;
+        this.territories[0].posy=300;
+        territoriosDibujar.push(this.territories[0]);
+        let pruebas=[];
+
+        let territory;
+        let neighbor;
+        let degrees;
+        while (territoriosDibujar != 0) {
+            territory = territoriosDibujar.at(-1);
+            neighbor = this.neighborAvailable(territory.territory);
+            territory.visitado = true;
+
+            if (neighbor != null) {
+                for(let vecinos of territory.territory.neighbors){
+                    if(vecinos.name===neighbor.territory.getName()){
+                        degrees=vecinos.degrees;
+                    }
+                }
+                
+                neighbor.posx=(Math.cos(degrees*(Math.PI/180))*120)+(territory.posx);
+                neighbor.posy=(Math.sin(degrees*(Math.PI/180))*120)+(territory.posy);
+                console.log("x:",neighbor.posx,"y:", neighbor.posy,"NameCalculos:",territory.territory.getName());
+                pruebas.push(neighbor);
+                territoriosDibujar.push(neighbor);
+
+            } else {
+                territoriosDibujar.pop();
+            }
+        }
+
+
         for (let item of this.territories) {
-            let circulo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            circulo.setAttributeNS(null, "cx", posX);
-            circulo.setAttributeNS(null, "cy", posY);
-            circulo.setAttributeNS(null, "r", 40);
-            circulo.setAttributeNS(null, "fill", item.continentColor);
-
-            circulo.addEventListener("click", function () {
+            let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', item.posx);
+            circle.setAttribute('cy', item.posy);
+            circle.setAttribute('r', 40);
+            circle.setAttribute('fill', 'red');
+            this.board.appendChild(circle);
+            circle.addEventListener("click", function () {
                 console.log(item.territory.getName());
             });
-
-            item.posX = posX;
-            item.posY = posY;
-
-            posX += 100;
-            this.board.appendChild(circulo);
         }
+
     }
 
+
+
+
 }
-export { Tablero }
+
+
+
+export { Tablero };

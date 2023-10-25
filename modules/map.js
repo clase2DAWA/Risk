@@ -1,228 +1,191 @@
 let map = {
-    "continent": [{
+    "continents": [{
         "name": "Europe",
         "color": "blue",
         "territories": [
             {
-                "name": "Grand Breatain",
-                "topLeft": null,
-                "top": "Iceland",
-                "topRight": "Scandinavia",
-                "left": null,
-                "right": "Northern Europe",
-                "bottomLeft": null,
-                "bottom": "Westem Europe",
-                "bottomRight": null,
-
-
+                "name": "Great Britain",
+                "neighbors": [
+                    { "name": "Iceland", "grados": 120 },
+                    { "name": "Northern Europe", "grados": 20 },
+                    { "name": "Westem Europe", "grados": 120 }
+                ],
             },
             {
                 "name": "Iceland",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Greenland",
-                "right": "Scandinavia",
-                "bottomLeft": null,
-                "bottom": "Great Britain",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Greenland", "grados": 40 },
+                    { "name": "Scandinavia", "grados": 210 },
+                    { "name": "Great Britain", "grados": 430 }
+                ],
             },
             {
                 "name": "Westem Europe",
-                "topLeft": null,
-                "top": "Great Britain",
-                "topRight": "Nothern Europe",
-                "left": null,
-                "right": "Southern Europe",
-                "bottomLeft": null,
-                "bottom": "Norht Africa",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Great Britain", "grados": 230 },
+                    { "name": "Southern Europe", "grados": 230 },
+                    { "name": "North Africa", "grados": 230 }
+                ],
             },
             {
                 "name": "Scandinavia",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Iceland",
-                "right": "Ukraine",
-                "bottomLeft": "Great Britain",
-                "bottom": "Northern Europe",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "Iceland", "grados": 230 },
+                    { "name": "Ukraine", "grados": 40 },
+                    { "name": "Great Britain", "grados": 50 },
+                    { "name": "Northern Europe", "grados": 30 },
+                    { "name": "Great Britain", "grados": 340 }
+                ],
             },
             {
                 "name": "Northern Europe",
-                "topLeft": null,
-                "top": "Scandinavia",
-                "topRight": null,
-                "left": "Great Britain",
-                "right": "Ukraine",
-                "bottomLeft": "Westem Europe",
-                "bottom": "Southern Europe",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "Great Britain", "grados": 0 },
+                    { "name": "Ukraine", "grados": 0 },
+                    { "name": "Scandinavia", "grados": 0 },
+                    { "name": "Southern Europe", "grados": 0 },
+                    { "name": "Westem Europe", "grados": 0 }
+                ],
             },
             {
                 "name": "Southern Europe",
-                "topLeft": null,
-                "top": "Northern Europe",
-                "topRight": null,
-                "left": "Westem Europe",
-                "right": "Middle East",
-                "bottomLeft": "Norht Africa",
-                "bottom": "Egypt",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "Westem Europe", "grados": 0 },
+                    { "name": "Middle East", "grados": 0 },
+                    { "name": "Northern Europe", "grados": 0 },
+                    { "name": "Egypt", "grados": 0 },
+                    { "name": "North Africa", "grados": 0 }
+                ],
             },
             {
                 "name": "Ukraine",
-                "topLeft": "Scandinavia",
-                "top": null,
-                "topRight": null,
-                "left": "Northern Europe",
-                "right": "Ural",
-                "bottomLeft": "Southern Europe",
-                "bottom": "Middle East",
-                "bottomRight": "Afghanistan",
-
+                "neighbors": [
+                    { "name": "Scandinavia", "grados": 0 },
+                    { "name": "Ural", "grados": 0 },
+                    { "name": "Northern Europe", "grados": 0 },
+                    { "name": "Middle East", "grados": 0 },
+                    { "name": "Southern Europe", "grados": 0 },
+                    { "name": "Afghanistan", "grados": 0 }
+                ],
             }
-
-
         ]
     },
     {
         "name": "Asia",
         "color": "green",
-        "territories": [
-            {
-                "name": "Ural",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Ukraine",
-                "right": "Siberia",
-                "bottomLeft": null,
-                "bottom": "Afghanistan",
-                "bottomRight": "china",
-
-
-            },
-            {
-                "name": "Afghanistan",
-                "topLeft": null,
-                "top": "Ural",
-                "topRight": null,
-                "left": "Ukraine",
-                "right": "China",
-                "bottomLeft": "Middle East",
-                "bottom": null,
-                "bottomRight": "India",
-
-
-            },
-            {
-                "name": "Middle East",
-                "topLeft": "Southern Europe",
-                "top": "Ukraine",
-                "topRight": "Afghanistan",
-                "left": "Egypt",
-                "right": " India",
-                "bottomLeft": "East Africa",
-                "bottom": null,
-                "bottomRight": null,
-
-
-            },
-            {
-                "name": "Siberia",
-                "topLeft": null,
-                "top": null,
-                "topRight": "Yakutsk",
-                "left": "Ural",
-                "right": "Irkutsk",
-                "bottomLeft": null,
-                "bottom": "China",
-                "bottomRight": "Mongolia",
-
-            },
-            {
-                "name": "China",
-                "topLeft": "Ural",
-                "top": "Siberia",
-                "topRight": "Mongolia",
-                "left": "Afghanistan",
-                "right": "Ukraine",
-                "bottomLeft": "India",
-                "bottom": "Siam",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Sian",
-                "topLeft": null,
-                "top": "China",
-                "topRight": null,
-                "left": "India",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": "Indonesia",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Yakutsk",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Siberia",
-                "right": "Kamchatka",
-                "bottomLeft": null,
-                "bottom": "Irkutsk",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Irkutsk",
-                "topLeft": null,
-                "top": "Yakutsk",
-                "topRight": null,
-                "left": "Siberia",
-                "right": "Kamchatka",
-                "bottomLeft": null,
-                "bottom": "Mongolia",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Mogolia",
-                "topLeft": null,
-                "top": "Irkutsk",
-                "topRight": "Kamchatka",
-                "left": "Siberia",
-                "right": "Japan",
-                "bottomLeft": null,
-                "bottom": "China",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Kamchatka",
-                "topLeft": "Yakutsk",
-                "top": null,
-                "topRight": null,
-                "left": "Irkutsk",
-                "right": "Alaska",
-                "bottomLeft": "Mongolia",
-                "bottom": "Japan",
-                "bottomRight": null,
-
-            }
-
-
+        "territories": [{
+            "name": "India",
+            "neighbors": [
+                { "name": "Middle East", "grados": 0 },
+                { "name": "Sian", "grados": 0 },
+                { "name": "China", "grados": 0 },
+                { "name": "Afghanistan", "grados": 0 }
+            ]
+        },
+        {
+            "name": "Ural",
+            "neighbors": [
+                { "name": "Ukraine", "grados": 0 },
+                { "name": "Siberia", "grados": 0 },
+                { "name": "Afghanistan", "grados": 0 },
+                { "name": "China", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Afghanistan",
+            "neighbors": [
+                { "name": "Ukraine", "grados": 0 },
+                { "name": "China", "grados": 0 },
+                { "name": "Ural", "grados": 0 },
+                { "name": "India", "grados": 0 },
+                { "name": "Middle East", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Middle East",
+            "neighbors": [
+                { "name": "Southern Europe", "grados": 0 },
+                { "name": "Ukraine", "grados": 0 },
+                { "name": "Afghanistan", "grados": 0 },
+                { "name": "Egypt", "grados": 0 },
+                { "name": "India", "grados": 0 },
+                { "name": "East Africa", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Siberia",
+            "neighbors": [
+                { "name": "Ural", "grados": 0 },
+                { "name": "Irkutsk", "grados": 0 },
+                { "name": "Yakutsk", "grados": 0 },
+                { "name": "China", "grados": 0 },
+                { "name": "Mongolia", "grados": 0 }
+            ],
+        },
+        {
+            "name": "China",
+            "neighbors": [
+                { "name": "Afghanistan", "grados": 0 },
+                { "name": "Ukraine", "grados": 0 },
+                { "name": "Ural", "grados": 0 },
+                { "name": "Siberia", "grados": 0 },
+                { "name": "Mongolia", "grados": 0 },
+                { "name": "India", "grados": 0 },
+                { "name": "Sian", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Sian",
+            "neighbors": [
+                { "name": "India", "grados": 0 },
+                { "name": "China", "grados": 0 },
+                { "name": "Indonesia", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Yakutsk",
+            "neighbors": [
+                { "name": "Siberia", "grados": 0 },
+                { "name": "Kamchatka", "grados": 0 },
+                { "name": "Irkutsk", "grados": 0 },
+                { "name": "Mongolia", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Irkutsk",
+            "neighbors": [
+                { "name": "Siberia", "grados": 0 },
+                { "name": "Kamchatka", "grados": 0 },
+                { "name": "Yakutsk", "grados": 0 },
+                { "name": "Mongolia", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Mongolia",
+            "neighbors": [
+                { "name": "Siberia", "grados": 0 },
+                { "name": "Japan", "grados": 0 },
+                { "name": "Irkutsk", "grados": 0 },
+                { "name": "Kamchatka", "grados": 0 },
+                { "name": "China", "grados": 0 }
+            ]
+        }, {
+            "name": "Kamchatka",
+            "neighbors": [
+                { "name": "Irkutsk", "grados": 0 },
+                { "name": "Alaska", "grados": 0 },
+                { "name": "Yakutsk", "grados": 0 },
+                { "name": "Mongolia", "grados": 0 },
+                { "name": "Japan", "grados": 0 }
+            ],
+        },
+        {
+            "name": "Japan",
+            "neighbors": [
+                { "name": "Mongolia", "grados": 0 },
+                { "name": "Kamchatka", "grados": 0 }
+            ],
+        }
         ]
     },
     {
@@ -231,54 +194,34 @@ let map = {
         "territories": [
             {
                 "name": "Indonesia",
-                "topLeft": null,
-                "top": "Siam",
-                "topRight": null,
-                "left": null,
-                "right": "New Guinea",
-                "bottomLeft": null,
-                "bottom": "Westerm Australia",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Sian", "grados": 0 },
+                    { "name": "New Guinea", "grados": 0 },
+                    { "name": "Westem Australia", "grados": 0 }
+                ],
             },
             {
                 "name": "New Guinea",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Indonesia",
-                "right": null,
-                "bottomLeft": "Westerm Australia",
-                "bottom": "Eastem Australia",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Indonesia", "grados": 0 },
+                    { "name": "Westem Australia", "grados": 0 },
+                    { "name": "Eastem Australia", "grados": 0 }
+                ],
             },
             {
-                "name": "Westerm Australia",
-                "topLeft": null,
-                "top": "Indonesia",
-                "topRight": "New Guinea",
-                "left": null,
-                "right": " Eastem Australia",
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
-
+                "name": "Westem Australia",
+                "neighbors": [
+                    { "name": "Indonesia", "grados": 0 },
+                    { "name": "New Guinea", "grados": 0 },
+                    { "name": "Eastem Australia", "grados": 0 }
+                ],
             },
             {
                 "name": "Eastem Australia",
-                "topLeft": null,
-                "top": "New Guinea",
-                "topRight": null,
-                "left": "Westerm Australia",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "New Guinea", "grados": 0 },
+                    { "name": "Westem Australia", "grados": 0 }
+                ],
             }
         ]
     },
@@ -288,257 +231,174 @@ let map = {
         "territories": [
             {
                 "name": "North Africa",
-                "topLeft": null,
-                "top": "Westerm Europe",
-                "topRight": "Southern Europe",
-                "left": "Brazil",
-                "right": "Egypt",
-                "bottomLeft": null,
-                "bottom": "Congo",
-                "bottomRight": "East Africa",
-
-
+                "neighbors": [
+                    { "name": "Westem Europe", "grados": 0 },
+                    { "name": "Southern Europe", "grados": 0 },
+                    { "name": "Egypt", "grados": 0 },
+                    { "name": "Congo", "grados": 0 },
+                    { "name": "East Africa", "grados": 0 }
+                ],
             },
             {
                 "name": "Egypt",
-                "topLeft": null,
-                "top": "Southern Europe",
-                "topRight": null,
-                "left": null,
-                "right": "Middle East",
-                "bottomLeft": null,
-                "bottom": "East Africa",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Southern Europe", "grados": 0 },
+                    { "name": "Middle East", "grados": 0 },
+                    { "name": "East Africa", "grados": 0 }
+                ],
             },
             {
                 "name": "East Africa",
-                "topLeft": "North Africa",
-                "top": "Egypt",
-                "topRight": "Middle East",
-                "left": "Congo",
-                "right": " Eastem Australia",
-                "bottomLeft": "South Africa",
-                "bottom": null,
-                "bottomRight": "Madagascar",
-
-
+                "neighbors": [
+                    { "name": "North Africa", "grados": 0 },
+                    { "name": "Egypt", "grados": 0 },
+                    { "name": "Middle East", "grados": 0 },
+                    { "name": "Congo", "grados": 0 },
+                    { "name": "Eastem Australia", "grados": 0 },
+                    { "name": "South Africa", "grados": 0 },
+                    { "name": "Madagascar", "grados": 0 }
+                ],
             },
             {
                 "name": "Congo",
-                "topLeft": "North Africa",
-                "top": null,
-                "topRight": null,
-                "left": null,
-                "right": "East Africa",
-                "bottomLeft": null,
-                "bottom": "South Africa",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "North Africa", "grados": 0 },
+                    { "name": "East Africa", "grados": 0 },
+                    { "name": "South Africa", "grados": 0 }
+                ],
             },
             {
                 "name": "South Africa",
-                "topLeft": null,
-                "top": "Congo",
-                "topRight": "East Africa",
-                "left": null,
-                "right": "Madagascar",
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Congo", "grados": 0 },
+                    { "name": "East Africa", "grados": 0 },
+                    { "name": "Madagascar", "grados": 0 }
+                ],
             },
             {
                 "name": "Madagascar",
-                "topLeft": "East Africa",
-                "top": null,
-                "topRight": null,
-                "left": "South Africa",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "East Africa", "grados": 0 },
+                    { "name": "South Africa", "grados": 0 }
+                ],
             }
         ]
-    }
-        , {
+    },
+    {
         "name": "South America",
         "color": "pink",
         "territories": [
             {
                 "name": "Venezuela",
-                "topLeft": "Central America",
-                "top": null,
-                "topRight": null,
-                "left": null,
-                "right": null,
-                "bottomLeft": "Peru",
-                "bottom": "Brazil",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Central America", "grados": 0 },
+                    { "name": "Peru", "grados": 0 },
+                    { "name": "Brazil", "grados": 0 }
+                ],
             },
             {
                 "name": "Brazil",
-                "topLeft": null,
-                "top": "Venezuela",
-                "topRight": null,
-                "left": "Peru",
-                "right": "North Africa",
-                "bottomLeft": "Argentina",
-                "bottom": null,
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Venezuela", "grados": 0 },
+                    { "name": "Peru", "grados": 0 },
+                    { "name": "Argentina", "grados": 0 }
+                ],
             },
             {
                 "name": "Peru",
-                "topLeft": null,
-                "top": "Venezuela",
-                "topRight": null,
-                "left": null,
-                "right": "Brazil",
-                "bottomLeft": null,
-                "bottom": "Argentina",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Venezuela", "grados": 0 },
+                    { "name": "Brazil", "grados": 0 },
+                    { "name": "Argentina", "grados": 0 }
+                ],
             },
             {
                 "name": "Argentina",
-                "topLeft": "North Africa",
-                "top": "Peru",
-                "topRight": "Brazil",
-                "left": null,
-                "right": null,
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "North Africa", "grados": 0 },
+                    { "name": "Peru", "grados": 0 },
+                    { "name": "Brazil", "grados": 0 }
+                ],
             }
         ]
-    }, {
-        "name": "Nothr America",
+    },
+    {
+        "name": "North America",
         "color": "Yellow",
         "territories": [
             {
                 "name": "Central America",
-                "topLeft": null,
-                "top": "Westem US",
-                "topRight": "Eastem US",
-                "left": null,
-                "right": null,
-                "bottomLeft": null,
-                "bottom": "Venezuela",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Westem US", "grados": 0 },
+                    { "name": "Eastem US", "grados": 0 },
+                    { "name": "Venezuela", "grados": 0 }
+                ],
             },
             {
                 "name": "Westem US",
-                "topLeft": null,
-                "top": "Alberta",
-                "topRight": "Ontario",
-                "left": null,
-                "right": "Eastem US",
-                "bottomLeft": null,
-                "bottom": "Central America",
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Alberta", "grados": 0 },
+                    { "name": "Ontario", "grados": 0 },
+                    { "name": "Eastem US", "grados": 0 },
+                    { "name": "Central America", "grados": 0 }
+                ],
             },
             {
                 "name": "Eastem US",
-                "topLeft": null,
-                "top": "Ontario",
-                "topRight": "Quebec",
-                "left": "Westem US",
-                "right": null,
-                "bottomLeft": "Central America",
-                "bottom": null,
-                "bottomRight": null,
-
-
+                "neighbors": [
+                    { "name": "Ontario", "grados": 0 },
+                    { "name": "Quebec", "grados": 0 },
+                    { "name": "Westem US", "grados": 0 },
+                    { "name": "Central America", "grados": 0 }
+                ],
             },
             {
                 "name": "Alberta",
-                "topLeft": "Alaska",
-                "top": "Northwest Territory",
-                "topRight": null,
-                "left": null,
-                "right": "Ontario",
-                "bottomLeft": null,
-                "bottom": "Westem US",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "Alaska", "grados": 0 },
+                    { "name": "Northwest Territory", "grados": 0 },
+                    { "name": "Ontario", "grados": 0 },
+                    { "name": "Westem US", "grados": 0 }
+                ],
             },
             {
                 "name": "Ontario",
-                "topLeft": null,
-                "top": "Northwest Territory",
-                "topRight": "Greendland",
-                "left": "Alberta",
-                "right": "Quebec",
-                "bottomLeft": "Westem US",
-                "bottom": "Eastem US",
-                "bottomRight": null,
-
-            },
-            {
-                "name": "Quebec",
-                "topLeft": null,
-                "top": null,
-                "topRight": "Greendaland",
-                "left": "Ontario",
-                "right": null,
-                "bottomLeft": null,
-                "bottom": "Eastem US",
-                "bottomRight": null,
-
+                "neighbors": [
+                    { "name": "Northwest Territory", "grados": 0 },
+                    { "name": "Greendland", "grados": 0 },
+                    { "name": "Alberta", "grados": 0 },
+                    { "name": "Quebec", "grados": 0 },
+                    { "name": "Westem US", "grados": 0 },
+                    { "name": "Eastem US", "grados": 0 }
+                ],
             },
             {
                 "name": "Alaska",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Kamchatka",
-                "right": "NorthWest Territory",
-                "bottomLeft": null,
-                "bottom": null,
-                "bottomRight": "Alberta",
-
+                "neighbors": [
+                    { "name": "Kamchatka", "grados": 0 },
+                    { "name": "NorthWest Territory", "grados": 0 },
+                    { "name": "Alberta", "grados": 0 }
+                ]
             },
             {
                 "name": "NorthWest Territory",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "Alaska",
-                "right": "Greenland",
-                "bottomLeft": null,
-                "bottom": "Alberta",
-                "bottomRight": "Ontario",
-
+                "neighbors": [
+                    { "name": "Alaska", "grados": 0 },
+                    { "name": "Greenland", "grados": 0 },
+                    { "name": "Alberta", "grados": 0 },
+                    { "name": "Ontario", "grados": 0 }
+                ]
             },
             {
                 "name": "Greenland",
-                "topLeft": null,
-                "top": null,
-                "topRight": null,
-                "left": "NorthWest Territory",
-                "right": "Iceland",
-                "bottomLeft": "Ontario",
-                "bottom": "Quebec",
-                "bottomRight": null,
-
-            },
-        ]
-    },
-    ]
+                "neighbors": [
+                    { "name": "NorthWest Territory", "grados": 0 },
+                    { "name": "Iceland", "grados": 0 },
+                    { "name": "Quebec", "grados": 0 },
+                    { "name": "Ontario", "grados": 0 }
+                ]
+            }]
+    }]
 }
-
 
 export { map };
