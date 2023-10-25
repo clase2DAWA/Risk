@@ -4,39 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #mapa {
+            position: relative;
+        }
+
+        svg {
+            position: absolute;
+        }
+
+    </style>
 </head>
-<style>
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    #world {
-        width: 100vw;
-        height: 100vh;
-    }
-
-    #board {
-        width: 100%;
-        height: 100%;
-    }
-</style>
 <body>
-    <div id="world">
-        <svg id="board">
-
+        
+    <div id="mapa">
+        <svg id="board" height="210" width="500">
+            <polygon id="territorio1" points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1" />
+            <polygon id="territorio2" points="210,10 260,190 170,210" style="fill:rgb(0, 17, 255);stroke:rgb(255, 11, 11);stroke-width:1" />
         </svg>
     </div>
-    <!-- <div>
-        <svg id="circle1" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
-            <circle cx="250" cy="250" r="210" fill="#fff" stroke="#000" stroke-width="8"/>
-        </svg>
-        <svg id="circle2" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
-            <circle cx="250" cy="250" r="210" fill="#fff" stroke="#000" stroke-width="8"/>
-        </svg>
-    </div> -->
-    <script type="module" src="game.js"></script>
+    <script type = "module" src="index.js"></script>
+
 </body>
 </html>
