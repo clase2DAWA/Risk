@@ -54,6 +54,14 @@ class Board {
         }
     }
 
+    draw2() {
+        let destino = [];
+
+        do { 
+
+        } while(destino != '')
+    }
+
 
 }
 export {Board};
