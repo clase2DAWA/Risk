@@ -2,6 +2,7 @@
     "continents":[
         {
             "name":"Europe",
+            "color": "red",
             "territories":[
                 {
                     "name":"Western Europe",
@@ -16,8 +17,6 @@
                         }
                     ]
                 },
-
-
                 {
                     "name":"Great Bretain",
                     "neighbors":[

@@ -5,6 +5,7 @@
 let territorio2 = document.getElementById("territorio2").addEventListener("click", function () {
     console.log("Territorio 2");
 });*/
+
 import { Board } from "./modules/board.js";
 let board = new Board(document.getElementById("board"));
 board.draw();
