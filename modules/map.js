@@ -365,7 +365,7 @@ let map = {
                 "name": "Ontario",
                 "neighbors": [
                     { "name": "Northwest Territory", "grados": 0 },
-                    { "name": "Greendland", "grados": 0 },
+                    { "name": "Greenland", "grados": 0 },
                     { "name": "Alberta", "grados": 0 },
                     { "name": "Quebec", "grados": 0 },
                     { "name": "Westem US", "grados": 0 },
@@ -376,12 +376,12 @@ let map = {
                 "name": "Alaska",
                 "neighbors": [
                     { "name": "Kamchatka", "grados": 0 },
-                    { "name": "NorthWest Territory", "grados": 0 },
+                    { "name": "Northwest Territory", "grados": 0 },
                     { "name": "Alberta", "grados": 0 }
                 ]
             },
             {
-                "name": "NorthWest Territory",
+                "name": "Northwest Territory",
                 "neighbors": [
                     { "name": "Alaska", "grados": 0 },
                     { "name": "Greenland", "grados": 0 },
@@ -392,12 +392,21 @@ let map = {
             {
                 "name": "Greenland",
                 "neighbors": [
-                    { "name": "NorthWest Territory", "grados": 0 },
+                    { "name": "Northwest Territory", "grados": 0 },
                     { "name": "Iceland", "grados": 0 },
                     { "name": "Quebec", "grados": 0 },
                     { "name": "Ontario", "grados": 0 }
                 ]
-            }]
+            },
+            {
+                "name": "Quebec",
+                "neighbors": [
+                    { "name": "Greenland", "grados": 0 },
+                    { "name": "Ontario", "grados": 0 },
+                    { "name": "Eastem US", "grados": 0 }
+                ]
+            }
+        ]
     }]
 }
 

@@ -41,15 +41,14 @@ class Tablero {
     neighborAvailable(territory) {
         let pais = null;
         for (let neighbor of territory.neighbors) {
-            console.log(neighbor)
-            console.log(this.search(neighbor.name));
-            console.log(!this.search(neighbor.name).visitado);
+            console.log("Vecino",neighbor)
+            console.log("Metadatos Vecino",this.search(neighbor.name));
+            console.log("Esta visitado",this.search(neighbor.name).visitado);
             
             if (!this.search(neighbor.name).visitado) {
-                pais = this.search(neighbor.name);
+                return pais = this.search(neighbor.name);
             }
         }
-        return pais;
 
     }
     draw() {
@@ -71,12 +70,12 @@ class Tablero {
             if (neighbor != null) {
                 for(let vecinos of territory.territory.neighbors){
                     if(vecinos.name===neighbor.territory.getName()){
-                        degrees=vecinos.degrees;
+                        degrees=vecinos.grados;
                     }
                 }
                 
-                neighbor.posx=(Math.cos(degrees*(Math.PI/180))*120)+(territory.posx);
-                neighbor.posy=(Math.sin(degrees*(Math.PI/180))*120)+(territory.posy);
+                neighbor.posx=(Math.cos(degrees*(Math.PI/180))*90)+(territory.posx);
+                neighbor.posy=(Math.sin(degrees*(Math.PI/180))*90)+(territory.posy);
                 console.log("x:",neighbor.posx,"y:", neighbor.posy,"NameCalculos:",territory.territory.getName());
                 pruebas.push(neighbor);
                 territoriosDibujar.push(neighbor);
