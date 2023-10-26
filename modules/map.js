@@ -8,7 +8,7 @@ let map = {
           name: "Western Europe",
           neighbors: [
             {
-              name: "Great Bretain",
+              name: "Great Britain",
               degrees: 0,
             },
             {
