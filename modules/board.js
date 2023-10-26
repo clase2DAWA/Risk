@@ -12,8 +12,8 @@ class Board {
       for (let territory of continent.territories) {
         // Vamos a crear los distintos territorios
         this.territories.push({
-          posX: 0,
-          posY: 0,
+          posx: 0,
+          posy: 0,
           // Usamos el nombre de cada territorio que tenemos dentro del mapa
           territory: new Territory(territory.name),
         });
