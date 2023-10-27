@@ -97,18 +97,9 @@ class Board {
       // Añadimos a la lista de visitados
       visited.push(firstTerritory);
     }
-    console.log(visited);
-    console.log("-----------------------------------------------");
-    console.log(firstTerritory.territory.name);
+    console.log(visited[visited.length - 1].territory.getName());
     // Declaramos variables
-    let obtain,
-      terr,
-      neighbor,
-      neighborData,
-      neighborX,
-      neighborY,
-      offsetX,
-      offsetY;
+    let obtain, terr, neighbor, neighborData, neighborX, neighborY;
     // Preguntamos a este territorio si tiene vecinos
     while (visited.length > 0) {
       // Cogemos el ultimo elemento del array de visitados
@@ -122,7 +113,6 @@ class Board {
           ) {
             neighbor = this.search(neighborIt.name);
             neighborData = neighborIt;
-            console.log("PASA POR LA SELECCION DE VECINO");
             obtain = true;
           }
         }
@@ -134,11 +124,6 @@ class Board {
           neighborX = Math.cos(neighborData.degrees * (Math.PI / 180)) * 40;
           neighborY = Math.sin(neighborData.degrees * (Math.PI / 180)) * 40;
           // console.log(neighborData.degrees);
-          console.log("X = " + neighborX + " Y = " + neighborY);
-          // Calculamos offsets
-          console.log(
-            terr.territory.name + ": " + terr.posx + " --- " + terr.posy
-          );
           // Controlamos que si los grados son hacia la derecha sumanos la x y si son para la izq los restamos
           if (neighborData.degrees > 0 && neighborData.degrees < 180) {
             neighborX += terr.posx + 100;
@@ -160,9 +145,8 @@ class Board {
 
           neighbor.posx = neighborX;
           neighbor.posy = neighborY;
-          console.log(neighbor);
+          console.log(neighbor.territory.getName());
           // Pintamos
-          console.log("Antes del evento: " + neighbor.territory.name);
 
           this.generateCircle(
             neighborX,
@@ -171,8 +155,6 @@ class Board {
             "#a80083",
             neighbor.territory.getName()
           );
-
-          console.log("Despues del evento: " + neighbor.territory.name);
           // Lo metemos a la lista de visitados
           visited.push(neighbor);
         }
