@@ -7,86 +7,142 @@ let map = {
         "territories": [
             {
                 "name": "Great Britain",
-                "top": "Iceland",
-                "topRight": "Scandinavia",
-                "topLeft": null,
-                "left": null,
-                "right": "Northern Europe",
-                "bottom": "Western Europe",
-                "bottomRight": null,
-                "bottomLeft": null,
-            },
-            {
-                "name": "Western Europe",
-                "top": "Great Britain",
-                "topRight": "Northern Europe",
-                "topLeft": null,
-                "left": null,
-                "right": "Southern Europe",
-                "bottom": "North Africa",
-                "bottomRight": null,
-                "bottomLeft": null
-            },
-            {
-                "name": "Southern Europe",
-                "top": "Northern Europe",
-                "topRight": "Ukraine",
-                "topLeft": null,
-                "left": "Western Europe",
-                "right": "Middle East",
-                "bottom": "Egypt",
-                "bottomRight": null,
-                "bottomLeft": "North Africa"
-            },
-            {
-                "name": "Northern Europe",
-                "top": "Scandinavia",
-                "topRight": null,
-                "topLeft": null,
-                "left": "Great Britain",
-                "right": "Ukraine",
-                "bottom": "Southern Europe",
-                "bottomRight": null,
-                "bottomLeft": "Western Europe",
-            },
-            {
-                "name": "Scandinavia",
-                "top": null,
-                "topRight": null,
-                "topLeft": null,
-                "left": "Iceland",
-                "right": "Ukraine",
-                "bottom": "Northern Europe",
-                "bottomRight": null,
-                "bottomLeft": "Great Britain"
+                "neighbors": [{
+                    "name": "Western Europe",
+                    "degrees": 90
+                },
+                {
+                    "name": "Northern Europe",
+                    "degrees": 0
+                },
+                {
+                    "name": "Iceland",
+                    "degrees": 270
+                }
+                ]
             },
             {
                 "name": "Iceland",
-                "top": null,
-                "topRight": null,
-                "topLeft": "Greenland",
-                "left": null,
-                "right": "Scandinavia",
-                "bottom": "Great Britain",
-                "bottomRight": null,
-                "bottomLeft": null
+                "neighbors": [{
+                    "name": "Great Britain",
+                    "degrees": 90
+                },
+                {
+                    "name": "Scandinavia",
+                    "degrees": 0
+                },
+                {
+                    "name": "Greenland",
+                    "degrees": 225
+                }
+                ]
             },
             {
-                "name": "Ukraine",
-                "top": null,
-                "topRight": "Ural",
-                "topLeft": "Scandinavia",
-                "left": "Northern Europe",
-                "right": "Afganistan",
-                "bottom": "Middle East",
-                "bottomRight": null,
-                "bottomLeft": "Southern Europe"
+                "name": "Western Europe",
+                "neighbors": [{
+                    "name": "Great Britain",
+                    "degrees": 270
+                },
+                {
+                    "name": "Northern Europe",
+                    "degrees": 315
+                },
+                {
+                    "name": "Southern Europe",
+                    "degrees": 0
+                },
+                {
+                    "name": "North Africa",
+                    "degrees": 90
+                }
+                ]
             }
         ]
-    },
-    {
-        "name": "Asia",
-        "color": "green",
+    }]
+}
+/*
+}
+"top": "Iceland",
+"topRight": "Scandinavia",
+    "topLeft": null,
+        "left": null,
+            "right": "Northern Europe",
+                "bottom": "Western Europe",
+                    "bottomRight": null,
+                        "bottomLeft": null,
+        },
+{
+"name": "Western Europe",
+    "top": "Great Britain",
+        "topRight": "Northern Europe",
+            "topLeft": null,
+                "left": null,
+                    "right": "Southern Europe",
+                        "bottom": "North Africa",
+                            "bottomRight": null,
+                                "bottomLeft": null
+},
+{
+"name": "Southern Europe",
+    "top": "Northern Europe",
+        "topRight": "Ukraine",
+            "topLeft": null,
+                "left": "Western Europe",
+                    "right": "Middle East",
+                        "bottom": "Egypt",
+                            "bottomRight": null,
+                                "bottomLeft": "North Africa"
+},
+{
+"name": "Northern Europe",
+    "top": "Scandinavia",
+        "topRight": null,
+            "topLeft": null,
+                "left": "Great Britain",
+                    "right": "Ukraine",
+                        "bottom": "Southern Europe",
+                            "bottomRight": null,
+                                "bottomLeft": "Western Europe",
+        },
+{
+"name": "Scandinavia",
+    "top": null,
+        "topRight": null,
+            "topLeft": null,
+                "left": "Iceland",
+                    "right": "Ukraine",
+                        "bottom": "Northern Europe",
+                            "bottomRight": null,
+                                "bottomLeft": "Great Britain"
+},
+{
+"name": "Iceland",
+    "top": null,
+        "topRight": null,
+            "topLeft": "Greenland",
+                "left": null,
+                    "right": "Scandinavia",
+                        "bottom": "Great Britain",
+                            "bottomRight": null,
+                                "bottomLeft": null
+},
+{
+"name": "Ukraine",
+    "top": null,
+        "topRight": "Ural",
+            "topLeft": "Scandinavia",
+                "left": "Northern Europe",
+                    "right": "Afganistan",
+                        "bottom": "Middle East",
+                            "bottomRight": null,
+                                "bottomLeft": "Southern Europe"
+}
+    ]
+},
+{
+
+"name": "Asia",
+    "color": "green",
         "territories": [
             {
                 "name": "Ural",
@@ -221,10 +277,10 @@ let map = {
                 "bottomLeft": null
             }
         ]
-    },
-    {
-        "name": "Oceania",
-        "color": "purple",
+},
+{
+"name": "Oceania",
+    "color": "purple",
         "territories": [
             {
                 "name": "Indonesia",
@@ -271,10 +327,10 @@ let map = {
                 "bottomLeft": null,
             }
         ]
-    },
-    {
-        "name": "Africa",
-        "color": "Brown",
+},
+{
+"name": "Africa",
+    "color": "Brown",
         "territories": [
             {
                 "name": "North Africa",
@@ -343,10 +399,10 @@ let map = {
                 "bottomLeft": null,
             }
         ]
-    },
-    {
-        "name": "South America",
-        "color": "red",
+},
+{
+"name": "South America",
+    "color": "red",
         "territories": [
             {
                 "name": "Venezuela",
@@ -393,10 +449,10 @@ let map = {
                 "bottomLeft": null,
             }
         ]
-    },
-    {
-        "name": "North America",
-        "color": "Yellow",
+},
+{
+"name": "North America",
+    "color": "Yellow",
         "territories": [
             {
                 "name": "Central America",
@@ -498,9 +554,9 @@ let map = {
                 "bottomLeft": "Ontario",
             }
         ]
-    }
-    ]
+}
+]
 
 }
-
 export { map }; 
+*/
