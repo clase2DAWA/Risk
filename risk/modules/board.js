@@ -3,7 +3,7 @@ import { map } from "./map.js";
 
 class Board {
 
-    constructor(board) {
+    constructor( board ) {
         this.board = board;
         this.territories = [];
         for (let item of map.continents) {
@@ -25,16 +25,31 @@ class Board {
             }
         }
 
-        
         console.log(this.territories);
     }
 
-    search(name) {
+    search( name ) {
         for (let item of this.territories) {
             if (item.territory.getName() === name) {
                 return item;
             }
         }
+    }
+
+    searchDataNeighbor(territory) {
+        let continent = null;
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                for (let neighbor of territory.neighbors) {
+                    if (!neighbor.visit) {                                  // Si el vecino no ha sido visitado, lo devolvemos
+                        continent = neighbor;
+                        return continent;
+                        
+                    }
+                }
+            }
+        }
+        console.log(continent);
     }
 
     draw() {
@@ -44,16 +59,19 @@ class Board {
         visitedTerritories.push( this.territories[0]);
 
         let visitedNeighbor = [];
-
+        let field;
+        
         while(visitedTerritories != 0) {
-            territory = visitedTerritories.at(-1);                // Obtenemos el último elemento de nuestro array 'visitedTerritories'
+            field = visitedTerritories.at(-1);                // Obtenemos el último elemento de nuestro array 'visitedTerritories'
             
+
             if(x) {
             
             } else {
                 visitedTerritories.pop();
             }
         }
+        
         for (let item of this.territories) {
             let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
             circle.setAttribute('cx', item.posx + 100);
@@ -66,6 +84,7 @@ class Board {
             });
         }
     }
+
 }
 
 export { Board };
