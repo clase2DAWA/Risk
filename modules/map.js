@@ -7,7 +7,7 @@ let map={
             "territories":[
                 {
                     "name":"Iceland",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"Scandinavia",
@@ -21,7 +21,7 @@ let map={
                 },
                 {
                     "name":"Scandinavia",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"Iceland",
@@ -43,7 +43,7 @@ let map={
                 },
                 {
                     "name":"W.Europe",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"G.Bretain",
@@ -61,7 +61,7 @@ let map={
                 },
                 {
                     "name":"G.Britain",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"Iceland",
@@ -83,7 +83,7 @@ let map={
                 },
                 {
                     "name":"S.Europe",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"N.Europe",
@@ -101,7 +101,7 @@ let map={
                 },
                 {
                     "name":"N.Europe",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"Scandinavia",
@@ -127,7 +127,7 @@ let map={
                 },
                 {
                     "name":"Ukraine",
-                    "color": "#4E4D3E",
+                    "color": "blue",
                     "neighbors":[
                         {
                             "name":"N.Europe",

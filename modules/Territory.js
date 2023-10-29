@@ -29,6 +29,13 @@ import { RISK } from "./Game.js"
         addNeighbor(neighbor){
             this.neighbors.push(neighbor);
         }
+        getX(){
+            return this.x;
+        }
+        getY(){
+            return this.y;
+        }
+
         setY(y){
             this.y=y;
         }
