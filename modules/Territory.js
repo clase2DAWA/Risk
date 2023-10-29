@@ -1,19 +1,14 @@
 import { RISK } from "./Game.js"
     RISK.territory = class {
 
-        constructor (name,color,top,right,bottom,left,topLeft,topRight,bottomLeft,bottomRight) {
+        constructor (name,color) {
 
             this.name = name;
             this.color = color;
             //this.army = army;
-            this.top = null;
-            this.right = null;
-            this.bottom = null;
-            this.left = null;
-            this.topLeft = null;
-            this.topRight = null;
-            this.bottomLeft = null;
-            this.bottomRight = null;
+            this.neighbors=[];
+            this.x = 0;
+            this.y = 0;
         }
 
         getName() {
@@ -28,11 +23,17 @@ import { RISK } from "./Game.js"
         /*getArmy() {
             return this.army;
         }*/
-        getR() {
-            return this.r;
-        }
         setArmy(army) {
             this.army = army;
+        }
+        addNeighbor(neighbor){
+            this.neighbors.push(neighbor);
+        }
+        setY(y){
+            this.y=y;
+        }
+        setX(x){
+            this.x=x
         }
     }
 

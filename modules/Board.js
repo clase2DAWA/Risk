@@ -1,6 +1,6 @@
 import { RISK } from "./Game.js";
 import { RISK as TERRITORY } from "./Territory.js";
-import { territoriesData } from "./territoriesData.js";
+import { map } from "./map.js";
 //import { lines } from "./lines.js";
 
 RISK.board = class {
@@ -15,16 +15,42 @@ RISK.board = class {
     }
 
 
-    assignTerritories() {
-        for (let continent of territoriesData.continents){
-            for (let item of continent.territories) {
-            
-                let territory = new RISK.territory(item.name,item.top,item.right,item.bottom,item.left,item.topLeft,item.topRight,item.bottomLeft,item.bottomRight);
-                this.territories.push(territory);
-                console.log(territory);
-            }
-        }
+    firstTerritory(){
 
+        for (let continents of map.continents){
+            for (let findFirstTerritory of continents.territories){
+                return findFirstTerritory.name;    
+            }
+
+        }
+    }
+
+    x () {
+
+        let haveToVisit = [this.firstTerritory()];
+        let territoryToVisit = haveToVisit.shift();
+
+        do{
+            
+            for ( let continents of map.continents){
+                for ( let territories of continents.territories){
+                    if (territories.name == territoryToVisit && !this.territories.some(territory => territory.name === territoryToVisit)){
+                        let creatingTerritory = new RISK.territory(territories.name,territories.color);
+                        
+                        for ( let neighbors of territories.neighbors){
+                            creatingTerritory.addNeighbor(neighbors);
+                            if (!this.territories.some(territory => territory.name === neighbors.name) && !haveToVisit.some(territory => territory.name === haveToVisit.name)){
+                                haveToVisit.push(neighbors.name);
+                            }
+                        }
+                        this.territories.push(creatingTerritory);
+                        //draw territory
+                        territoryToVisit = haveToVisit.shift(); 
+                        console.log(haveToVisit);
+                    }
+                }
+            }             
+        } while (haveToVisit.length !=0);
     }
 
     /*drawLinesOnMap(SVG) {
@@ -45,19 +71,9 @@ RISK.board = class {
         }
     }*/
     
-    /*determinateDirection(item){
 
-        for (let key in item) {
-            if (key !== "name" && key !== "color" && item[key] !== null) {
-                if (key === ){}
-                ??? How to determina the position?
-            }
-        }
-    }*/
 
     drawTerrainOnMap(SVG) {
-
-        let visitedCountries = [];
 
         let cy = 800;
         let cx = 800;
@@ -89,9 +105,9 @@ RISK.board = class {
             text.textContent = item.getName(); 
             text.classList.add("countryName");
 
-        /*  tspan.setAttribute("x", item.getX());
+            tspan.setAttribute("x", item.getX());
             tspan.setAttribute("dy", "1.2em"); 
-            tspan.textContent = item.getArmy();*/
+            tspan.textContent = item.getArmy();
 
             SVG.appendChild(circle);
             //text.appendChild(tspan);
