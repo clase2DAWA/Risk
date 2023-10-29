@@ -55,11 +55,13 @@ let map = {
                     "name": "North Africa",
                     "degrees": 90
                 }
+                
                 ]
             }
         ]
     }]
 }
+export { map };
 /*
 }
 "top": "Iceland",

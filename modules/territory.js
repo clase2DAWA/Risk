@@ -3,6 +3,7 @@ class Territory {
         this.name = name;
         this.army = 0;
         this.degrees = null;
+        this.neighbors = [];
 
     }
     get name() {

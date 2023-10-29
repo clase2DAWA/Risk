@@ -5,55 +5,67 @@ class Board {
     constructor(board) {
         this.board = board;
         this.territories = [];
-        /* primero rellenar los territorios con new territorios*/
+
         for (let item of map.continent) {
             for (let territory of item.territories) {
                 this.territories.push({
                     "posX": 0,
                     "posY": 0,
                     "name": territory.name,
-                    "color": item.color
+                    "color": item.color,
+                    "visited": false,
+                    "neigbors": territory.neighbors
                 });
             }
         }
-        
-        /* luego rellenas los objetos territorio con el json*/
-        for (let continent of map.continent) {
-            for(let territory of continent.territories){
-                let temp = this.search(territory.name);
-                    temp.name = territory.name;
-                    temp.top = territory.top;                    
-                    temp.topRight = territory.topRight;
-                    temp.topLeft = territory.topLeft;
-                    temp.left = territory.left;
-                    temp.right = territory.right;
-                    temp.bottom = territory.bottom;
-                    temp.bottomRight = territory.bottomRight;
-                    temp.bottomLeft = territory.bottomLeft;
-            }
-        }
-        console.log(this.territories);
-    };
+    }
+
+
+
 
     draw() {
-        let territory;
-        let posX = 60;
-        let posY = 60;
-
-        for (let item of this.territories) {
-            territory = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            territory.setAttribute("cx", posX);
-            territory.setAttribute("cy", posY);
-            territory.setAttribute("r", 20);
-            territory.setAttribute("fill", item.color);
-            territory.addEventListener("click", function () {
-                console.log(item.name);
-            });
-            this.board.appendChild(territory);
-            posX += 60;
-
+        this.territories[0].posX = 500;
+        this.territories[0].posY = 500;
+        let neighbors = [];
+        let painted = [];
+        for (let territory of this.territories){
+            if(!territory.visited){
+                for(let neigbor of territory.neigbors){
+                    if(!neighbors.includes(neigbor.name)){
+                        neighbors.push(neigbor.name);
+                    }
+                }
+            }
+            territory.visited = true;
         }
+
+        console.log("esto son los vecinos del array de vecinos");
+        console.log(neighbors);
+        console.log("esto son territorios");
+        console.log(this.territories);
+
+        /* Algoritmo 
+        1. recorrer los vecinos del pais que estoy pintando
+        2. al recorrerlos le cambiamos las coordenadas */
+        /*              neighbor.posX = (Math.cos((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posX;
+                        neighbor.posY = (Math.sin((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posY;
+                      
+                for (let item of this.territories) {
+                    territory = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    territory.setAttribute("cx", item.posX);
+                    territory.setAttribute("cy", item.posY);
+                    territory.setAttribute("r", 20);
+                    territory.setAttribute("fill", item.color);
+                    territory.addEventListener("click", function () {
+                        console.log(item.name);
+                    });
+                    this.board.appendChild(territory);
+                
+                }
+                 */
     }
+
+
 
     search(name) {
         for (let item of this.territories) {
@@ -62,18 +74,6 @@ class Board {
             }
         }
     }
-
-    /* Dibujar lineas entre paises
-    drawLines() {
-        let neighbor;
-        for (let item of this.territories) {
-            neighbor = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            neighbor.setAttribute("x1", item.posX);
-            neighbor.setAttribute("y1", item.posY);
-            this.board.appendChild(neighbor);
-        }
-    }
-    */
 };
 
 export { Board };
