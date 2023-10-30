@@ -1,40 +1,45 @@
-import { Territory } from "./Territories.js";
-let Map = [{
-    Europe:{
-        territories: [
-            {
-                Territory: "Southern Europe",
-                top: "Northern Europe",
-                bottom: null,
-                right: null,
-                left: "Western Europe",
-            },  
-            {
-                Territory: "Great Britain",
-             
-                top: null,
-            bottom: "Western Europe",
-                right: "Northern Europe",
-                left: null,
-            },
-            {
-                Territory: "Northern Europe",
-              
-                top: null,
-                bottom: "Southern Europe",
-                right: null,
-                left: "Great Britain",
-            },
-            {
-                Territory: "Western Europe",
-          
-                top: "Great Britain",
-                bottom: null,
-                right: "Southern Europe",
-                left: null,
-            },
-        ]
-    }
+ let map={
+    "continents":[
+        {
+            "name":"Europe",
+            "territories":[
+                {
+                    "name":"Western Europe",
+                    "neighbors":[
+                        {
+                            "name":"Great Bretain",
+                            "degrees":0
+                        },
+                        {
+                            "name":"Southern Europe",
+                            "degrees":90
+                        }
+                    ]
+                },
+
+
+                {
+                    "name":"Great Bretain",
+                    "neighbors":[
+                        {
+                            "name":"Western Europe",
+                            "degrees":180
+                        }
+                    ]
+                },
+                {
+                    "name":"Southern Europe",
+                    "neighbors":[
+                        {
+                            "name":"Western Europe",
+                            "degrees":270
+                        }
+                    ]
+                }
+            
+            ]
+        }
+    ]
 }
-];
-export{Map};
+
+export { map };
