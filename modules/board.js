@@ -28,11 +28,14 @@ class Board {
         this.territories[0].posY = 500;
         let neighbors = [];
         let painted = [];
-        for (let territory of this.territories){
-            if(!territory.visited){
-                for(let neigbor of territory.neigbors){
-                    if(!neighbors.includes(neigbor.name)){
-                        neighbors.push(neigbor.name);
+        let territoryCircle;
+        let neigborCircle;
+
+        for (let territory of this.territories) {
+            if (!territory.visited) {
+                for (let neigbor of territory.neigbors) {
+                    if (!neighbors.includes(neigbor)) {
+                        neighbors.push(neigbor);
                     }
                 }
             }
@@ -47,23 +50,41 @@ class Board {
         /* Algoritmo 
         1. recorrer los vecinos del pais que estoy pintando
         2. al recorrerlos le cambiamos las coordenadas */
-        /*              neighbor.posX = (Math.cos((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posX;
-                        neighbor.posY = (Math.sin((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posY;
-                      
-                for (let item of this.territories) {
-                    territory = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                    territory.setAttribute("cx", item.posX);
-                    territory.setAttribute("cy", item.posY);
-                    territory.setAttribute("r", 20);
-                    territory.setAttribute("fill", item.color);
-                    territory.addEventListener("click", function () {
-                        console.log(item.name);
-                    });
-                    this.board.appendChild(territory);
+        /*   neighbor.posX = (Math.cos((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posX;
+           neighbor.posY = (Math.sin((neighbor.degrees) * (Math.PI / 180)) * 90) + territory.posY;*/
+
+        for (let item of this.territories) {
+            territoryCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            territoryCircle.setAttribute("cx", item.posX);
+            territoryCircle.setAttribute("cy", item.posY);
+            territoryCircle.setAttribute("r", 20);
+            territoryCircle.setAttribute("fill", item.color);
+            territoryCircle.addEventListener("click", function () {
+                console.log(item.name);
+            });
+            this.board.appendChild(territoryCircle);
+            for (let neighbor of item.neigbors) {
+                let temp = this.search(neighbor.name);
+                let posX = (Math.cos((neighbor.degrees) * (Math.PI / 180)) * 90) + item.posX;
+                let posY = (Math.sin((neighbor.degrees) * (Math.PI / 180)) * 90) + item.posY;
+                neigborCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                neigborCircle.setAttribute("cx", posX);
+                neigborCircle.setAttribute("cy", posY);
+                neigborCircle.setAttribute("r", 20);
+                neigborCircle.setAttribute("fill", item.color);
+                neigborCircle.addEventListener("click", function () {
+                    console.log(neighbor.name);
+                });
+                this.board.appendChild(neigborCircle);
                 
-                }
-                 */
+                painted.push(temp);
+            }
+            painted.push(item);
+            console.log(painted);
+        }
+
     }
+
 
 
 
