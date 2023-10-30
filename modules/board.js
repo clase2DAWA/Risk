@@ -55,11 +55,18 @@ class Board {
     }
 
     draw2() {
-        let destino = [];
+        let destino = ['Europe'];
+        let visitados = ['Europe'];
 
-        do { 
-
-        } while(destino != '')
+        while(destino != '') { 
+            if (visitados.find((element) => element != item.territory.getName())) {
+                destino.push(item.territory.getName())
+                visitados.push(item.territory.getName())
+                if (neighbor = '') {
+                    destino.pop();
+                }
+            }
+        } 
     }
 
 
