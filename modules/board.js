@@ -74,10 +74,12 @@ let Board = class {
                 let territory = this.firstItemArray(notVisited);
                 visualitation.push(territory);
                 notVisited.splice(notVisited.indexOf(territory), 1);
+                /**Dibujar */
                 let neighbor = this.checkNeighbour(visualitation[visualitation.length - 1], notVisited);
                 if (neighbor != null) {
                     visualitation.push(neighbor);
                     notVisited.splice(notVisited.indexOf(neighbor), 1);
+                    /**Dibujar */
                 } else {
                     visualitation.pop();
                 }
@@ -86,6 +88,7 @@ let Board = class {
                 if (neighbor != null) {
                     visualitation.push(neighbor);
                     notVisited.splice(notVisited.indexOf(neighbor), 1);
+                    /**Dibujar */
                 } else {
                     visualitation.pop();
                 }
@@ -101,13 +104,6 @@ let Board = class {
             console.log(a);
             a++;
         }
-        /*
-        visited.push(territory);
-        console.log(notVisited.findIndex(territory));
-        notVisited.splice(notVisited.findIndex(territory));
-        */
-
-
         /*
         var circle = document.createElement("http://www.w3.org/2000/svg", 'circle');
         circle.setAttribute(null, 'x', x);
