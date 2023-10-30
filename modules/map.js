@@ -1,7 +1,7 @@
 let map = {
     "continents":[
         {
-            "name":"Europe",
+            "name":"europe",
             "territories":[
                 {
                     "name":"Western Europe",
@@ -11,119 +11,128 @@ let map = {
                             "degrees":0
                         },
                         {
+                            "name":"Northern Europe",
+                            "degrees":45
+                        },
+                        {
                             "name":"Southern Europe",
                             "degrees":90
                         }
                     ]
                 },
-
-
-                {
-                    "name":"Great Bretain",
-                    "neighbors":[
-                        {
-                            "name":"Western Europe",
-                            "degrees":180
-                        }
-                    ]
-                },
                 {
                     "name":"Southern Europe",
                     "neighbors":[
+                        {
+                            "name":"Northern Europe",
+                            "degrees":0
+                        },
+                        {
+                            "name":"Ukraine",
+                            "degrees":45
+                        },
                         {
                             "name":"Western Europe",
                             "degrees":270
                         }
                     ]
-                }
-            
-            ]
-        }
-    ]/*
-    "continents":[
-        {
-            "name":"europe",
-            "territories":[
-                {
-                    "name":"Western Europe",
-                    "TopLeft":null,
-                    "Top":"Great Bretain",
-                    "TopRight":"Northern Europe",
-                    "Right":"Southern Europe",
-                    "BottomRight":null,
-                    "Bottom":null,
-                    "BottomLeft":null,
-                    "Left":null
-                },
-                {
-                    "name":"Southern Europe",
-                    "TopLeft":null,
-                    "Top":"Northern Europe",
-                    "TopRight":"Ukraine",
-                    "Right":null,
-                    "BottomRight":null,
-                    "Bottom":null,
-                    "BottomLeft":null,
-                    "Left":"Western Europe"
                 },
                 {
                     "name":"Northern Europe",
-                    "TopLeft":null,
-                    "Top":"Scandinavia",
-                    "TopRight":null,
-                    "Right":"Ukraine",
-                    "BottomRight":null,
-                    "Bottom":null,
-                    "BottomLeft":"Western Europe",
-                    "Left":"Great Bretain"
+                    "neighbors":[
+                        {
+                            "name":"Scandinavia",
+                            "degrees":0
+                        },
+                        {
+                            "name":"Ukraine",
+                            "degrees":90
+                        },
+                        {
+                            "name":"Western Europe",
+                            "degrees":225
+                        },
+                        {
+                            "name":"Ukraine",
+                            "degrees":270
+                        }
+                    ]
                 },
                 {
                     "name":"Ukraine",
-                    "TopLeft":"Scandinavia",
-                    "Top":null,
-                    "TopRight":null,
-                    "Right":null,
-                    "BottomRight":null,
-                    "Bottom":null,
-                    "BottomLeft":"Southern Europe",
-                    "Left":"Northern Europe"
+                    "neighbors":[
+                        {
+                            "name":"Southern Europe",
+                            "degrees":225
+                        },
+                        {
+                            "name":"Northern Europe",
+                            "degrees":270
+                        },
+                        {
+                            "name":"Scandinavia",
+                            "degrees":315
+                        }
+                    ]
                 },
                 {
                     "name":"Scandinavia",
-                    "TopLeft":null,
-                    "Top":null,
-                    "TopRight":null,
-                    "Right":"Ukraine",
-                    "BottomRight":"Ukraine",
-                    "Bottom":"Northern Europe",
-                    "BottomLeft":"Great Bretain",
-                    "Left":"Iceland"
+                    "neighbors":[
+                        {
+                            "name":"Ukraine",
+                            "degrees":135
+                        },
+                        {
+                            "name":"Northern Europe",
+                            "degrees":180
+                        },
+                        {
+                            "name":"Great Bretain",
+                            "degrees":225
+                        },
+                        {
+                            "name":"Iceland",
+                            "degrees":270
+                        }
+                    ]
                 },
                 {
                     "name":"Iceland",
-                    "TopLeft":null,
-                    "Top":null,
-                    "TopRight":null,
-                    "Right":"Scandinavia",
-                    "BottomRight":null,
-                    "Bottom":"Great Bretain",
-                    "BottomLeft":null,
-                    "Left":null
+                    "neighbors":[
+                        {
+                            "name":"Scandinavia",
+                            "degrees":90
+                        },
+                        {
+                            "name":"Great Bretain",
+                            "degrees":180
+                        }
+                    ]
                 },
                 {
                     "name":"Great Bretain",
-                    "TopLeft":null,
-                    "Top":"Iceland",
-                    "TopRight":"Scandinavia",
-                    "Right":"Northern Europe",
-                    "BottomRight":null,
-                    "Bottom":"Western Europe",
-                    "BottomLeft":null,
-                    "Left":null,
+                    "neighbors":[
+                        {
+                            "name":"Iceland",
+                            "degrees":0
+                        },
+                        {
+                            "name":"Scandinavia",
+                            "degrees":45
+                        },
+                        {
+                            "name":"Northern Europe",
+                            "degrees":90
+                        },
+                        {
+                            "name":"Western Europe",
+                            "degrees":180
+                        }
+                    ]
                 }
             ]
         }
-    ]*/
+    ]
 }
 
 export {map};
