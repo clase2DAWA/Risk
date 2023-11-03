@@ -6,43 +6,45 @@ class Board {
     constructor(board) {
         this.board = board;
         this.territories = [];
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
+        let elementTerritory;
+        for (let continent of map.continents) {
+            for (let territory of continent.territories) {
                 let element = ({
                     "posx": 0,
                     "posy": 0,
                     "territory": null,
                     "visited": false
                 });
-                let elementTerritory = new Territory(territory.name, element);
+                elementTerritory = new Territory(territory.name, element);
                 element.territory = elementTerritory;
-                console.log(territory);
-                console.log(this.getJsonData(elementTerritory));
+                elementTerritory
+                console.log(elementTerritory);
             }
+            
         }
-
-/*
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
-                for (let neighbor of territory.neighbors) {
-                    this.search(territory.name).addNeighbor(neighbor);
+        console.log(elementTerritory);
+                    /*tenemos que acceder al element de cada territorio y que muestre los vecinos*/
+        /*
+                for (let item of map.continents) {
+                    for (let territory of item.territories) {
+                        for (let neighbor of territory.neighbors) {
+                            this.search(territory.name).addNeighbor(neighbor);
+                        }
+                    }
                 }
-            }
-        }
-        console.log(this.territories);
-        */
+                console.log(this.territories);
+                */
     }
 
-    getJsonData(elementTerritory){
+    getJsonData(elementTerritory) {
         let jsonData;
-        for(let continent of map.continents){
-            for(let territory of continent.territories){
-                jsonData = territory.neighbors.find((territory) => territory.name == elementTerritory.name);
-            }
+
+        for (let continent of map.continents) {
+            jsonData = continent.territories.find((territory) => territory.name === elementTerritory.getName());
         }
-        return  jsonData;
+        return jsonData.neighbors;
     }
-        
+
     search(name) {
         for (let item of this.territories) {
             if (item.territory.getName() === name) {
