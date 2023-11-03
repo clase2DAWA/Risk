@@ -23,17 +23,16 @@ class Board {
             
         }
         console.log(elementTerritory);
+
                     /*tenemos que acceder al element de cada territorio y que muestre los vecinos*/
-        /*
+        
                 for (let item of map.continents) {
                     for (let territory of item.territories) {
-                        for (let neighbor of territory.neighbors) {
-                            this.search(territory.name).addNeighbor(neighbor);
-                        }
+                        this.search(territory.name).addNeighbor(this.getJsonData(this.search(territory.name)));
                     }
                 }
                 console.log(this.territories);
-                */
+                
     }
 
     getJsonData(elementTerritory) {
