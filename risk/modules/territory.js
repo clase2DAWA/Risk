@@ -1,9 +1,10 @@
 class Territory {
 
-    constructor(name) {
+    constructor(name, element) {
         this.name = name;
         this.army = 0;
         this.neighbors=[];
+        this.element = element;
     }
 
     getName() {
