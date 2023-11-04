@@ -8,6 +8,6 @@
 - Alejandro Aguilera: me he enterado el porque de del constructor y como añadir los metadatos.
 - Alejandro Rodrigo Rodriguez: He entendido todo correctamente, además hemos encontrado algunas mejoras al codigo.
 - Juan Carlos:
-- Aguirre: No me enteré de nada. 
+- Aguirre: No me enteré de nada. No me he enterado del ultimo paso del if. Después de revisarlo lo he entendido.
 - Ariel Guerrero Rivas: me he enterado de todo lo que hicimos en clase y su finalidad.
 - Jenny Vasquez: hemos estado haciendo el constructor y de momento me he enterado de su funcionamiento.
