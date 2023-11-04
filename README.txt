@@ -6,3 +6,4 @@ MIEMBROS:
     - Juan Carlos Carballo Reyes
     - Alejandro Fernández Polo
     - Alejandro Aguilera López
+    - Alejandro Rodrigo Rodriguez
