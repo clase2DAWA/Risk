@@ -1,17 +1,12 @@
 class Territory {
-  constructor(name, jsonData) {
+  constructor(name) {
     this.name = name;
     this.army = 0;
     this.neighbors = [];
-    this.jsonData = jsonData;
   }
 
   getName() {
     return this.name;
-  }
-
-  getJsonData() {
-    return this.jsonData;
   }
 
   setArmy(army) {

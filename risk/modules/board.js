@@ -7,24 +7,18 @@ class Board {
     this.territories = [];
     for (let item of map.continents) {
       for (let territory of item.territories) {
-        let landMetaInformation = {
+        this.territories.push({
           posx: 0,
           posy: 0,
-          visited: false,
-          territory: null,
-        };
-        let land = new Territory(territory.name, landMetaInformation);
-        landMetaInformation.territory = land;
-        this.territories.push(landMetaInformation);
+          territory: new Territory(territory.name),
+        });
       }
     }
 
     for (let item of map.continents) {
       for (let territory of item.territories) {
         for (let neighbor of territory.neighbors) {
-          this.search(territory.territory.name).territory.addNeighbor(
-            this.search(neighbor.name)
-          );
+          this.search(territory.name).addNeighbor(neighbor);
         }
       }
     }
@@ -35,19 +29,9 @@ class Board {
   search(name) {
     for (let item of this.territories) {
       if (item.territory.getName() === name) {
-        return item;
+        return item.territory;
       }
     }
-  }
-
-  x() {
-    // Cogemos el promer territorio del array de territories
-    let land = this.territories.find((item) => item.visited == false);
-    land.posx = 300;
-    land.posy = 300;
-    land.visited = true;
-    let visited = [];
-    visited.push(land);
   }
 
   draw() {
