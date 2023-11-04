@@ -8,5 +8,5 @@
 - Alejandro Aguilera:
 - Alejandro Rodrigo Rodriguez: He entendido los cambios en el constructor, para añadir los metadatos y sus ventajas.
 - Juan Carlos:
-- Aguirre:
+- Aguirre: No me enteré de nada. 
 - Ariel Guerrero Rivas: me he enterado de todo lo que hicimos en clase y su finalidad.
