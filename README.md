@@ -5,8 +5,9 @@
 - Tatiana Fuentes Cruz: estamos haciendo el constructor correctamente y me he enterado hasta ahora de todo y el por qué se hace todo.
 - Samuel Sanchez Heredia: estamos haciendo el constructor correctamente y me he enterado hasta ahora de todo y el por qué se hace todo.
 - Alejandro Fernandez: me he enterado de la creacion de los territorios con su metainformación.
-- Alejandro Aguilera:
+- Alejandro Aguilera: me he enterado el porque de del constructor y como añadir los metadatos.
 - Alejandro Rodrigo Rodriguez: He entendido los cambios en el constructor, para añadir los metadatos y sus ventajas.
 - Juan Carlos:
-- Aguirre:
+- Aguirre: No me enteré de nada. 
 - Ariel Guerrero Rivas: me he enterado de todo lo que hicimos en clase y su finalidad.
+- Jenny Vasquez: hemos estado haciendo el constructor y de momento me he enterado de su funcionamiento.
