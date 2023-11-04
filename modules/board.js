@@ -33,11 +33,8 @@ class Board {
   }
 
   search(name) {
-    for (let item of this.territories) {
-      if (item.territory.getName() === name) {
-        return item;
-      }
-    }
+    // Revisando el codigo hemos encontrado que el método search podia ser mejorado haciendo uso de la función find de los Arrays.
+    return this.territories.find((item) => item.territory.getName() === name);
   }
 
   setTerritories() {
