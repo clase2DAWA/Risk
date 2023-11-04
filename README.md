@@ -10,3 +10,4 @@
 - Juan Carlos:
 - Aguirre: No me enteré de nada. 
 - Ariel Guerrero Rivas: me he enterado de todo lo que hicimos en clase y su finalidad.
+- Jenny Vasquez: hemos estado haciendo el constructor y de momento me he enterado de su funcionamiento.
