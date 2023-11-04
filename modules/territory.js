@@ -2,10 +2,11 @@ class Territory {
   constructor(name, jsonData) {
     this.name = name;
     this.army = 0;
+    this.neighbors = [];
     this.jsonData = jsonData;
   }
 
-  getname() {
+  getName() {
     return this.name;
   }
 
@@ -15,6 +16,10 @@ class Territory {
 
   setArmy(army) {
     this.army = army;
+  }
+
+  addNeighbor(neighbor) {
+    this.neighbors.push(neighbor);
   }
 }
 
