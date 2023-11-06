@@ -12,14 +12,17 @@ RISK.board = class {
         this.maxHeight = maxHeight;
         this.maxWidth = maxWidth;
         this.territories = [];
-        
     }
+
+    //Función que inicia las principales funciones para generar la base de datos, introducir datos y dibujar los territorios
 
     start(SVG){
         this.generateDatabase();
         this.setData();
         //this.draw(SVG);
     }
+
+    //Generamos un objeto jsonData para aplicarselo a los territorios creados y conseguir la recursividad.
 
     generateDatabase () {
 
@@ -37,6 +40,8 @@ RISK.board = class {
             }
         }
 
+        // se recorren los territorios para asignar los vecinos a dichos territorios (este trozo de código lo hemos cogido prestado)
+
         for (let item of map.continents) {
             for (let territory of item.territories) {
                 for (let neighbor of territory.neighbors) {
@@ -51,9 +56,11 @@ RISK.board = class {
         return this.territories.find(item => item.territory.getName() === name);
     }
 
+    //Trabajamos directamente sobre el array de this.territories
+
     setData(){
 
-        while (this.territories.filter(territory => !territory.visited).length > 0 ){ //filter
+        while (this.territories.filter(territory => !territory.visited).length > 0 ){ 
 
             let territory = this.nextUnvisitedTerritory();
             territory.posx = 250;
@@ -62,7 +69,7 @@ RISK.board = class {
             if ( territory.territory.neighbors !=null){
                 for ( let visitNeighbors of territory.territory.neighbors){
                     if (this.territories.includes(visitNeighbors) && !this.checkVisited(visitNeighbors.territory.name)){
-                        //condiciones draw
+                        //condiciones draw sin determinar 
                         this.markAsVisited(visitNeighbors);
                         
                     }
@@ -92,108 +99,7 @@ RISK.board = class {
 
     }
 
-
-    
-
-
-/*
-generateAndDraw(SVG) {
-    let haveToVisit = [this.firstTerritory()];
-    let visitedTerritories = {};
-
-    while (haveToVisit.length > 0) {
-        let territoryToVisit = haveToVisit.shift();
-
-        if (!visitedTerritories[territoryToVisit]) {
-            visitedTerritories[territoryToVisit] = true;
-            let continent = this.findContinentByTerritoryName(territoryToVisit);
-
-            if (continent) {
-                for (let territory of continent.territories) {
-                    if (territory.name !== territoryToVisit) {
-                        let creatingTerritory = new RISK.territory(territory.name, territory.color);
-                        creatingTerritory.neighbors = this.getNeighborsRecursively(territory);
-                        haveToVisit.push(creatingTerritory.name);
-                        console.log(creatingTerritory);
-                    }
-                }
-            }
-        }
-    }
-}
-
-findTerritoryByName(name) {
-    for (let continent of map.continents) {
-        for (let territory of continent.territories) {
-            if (territory.name === name) {
-                return new RISK.territory(territory.name, territory.color);
-            }
-        }
-    }
-    return null;
-}
-    
-        /*
-        do{
-            for ( let continents of map.continents){
-                for ( let territories of continents.territories){
-                    if (territories.name == territoryToVisit && !this.territories.includes(territories.name)) {
-                        let creatingTerritory = new RISK.territory(territories.name, territories.color, element);
-                        this.assignNeighbors(creatingTerritory, territories.neighbors);
-                        console.log(creatingTerritory);
-
-
-                        creatingTerritory.setY(y);
-                        creatingTerritory.setX(x);
-                        this.assignNeighbors(creatingTerritory);
-                    }
-                    for ( let neighbors of territories.neighbors){
-                        creatingTerritory.addNeighbor(neighbors);
-                        if (!this.territories.some(territory => territory.name === neighbors.name) && !haveToVisit.includes(neighbors.name)){
-                            haveToVisit.push(neighbors.name);
-                        
-                    }
-                    this.territories.push(creatingTerritory);
-                    this.draw(SVG,creatingTerritory);
-
-                    territoryToVisit = haveToVisit.shift(); 
-                    for (let reference of this.territories){
-                        for ( let neighborReference of reference.neighbors){
-                            if (neighborReference.name==territoryToVisit){
-                                let sax = reference.x;
-                                let say = reference.y;
-                                console.log(sax);
-                                console.log(say);
-                                // con esto saco la referencia de la posicion territorio que le toque
-                                x += this.recalculateCx(x) + 50;
-                                y += this.recalculateCy(y) + 50;
-                                break;
-                                //hay que sacar la referencia de X e Y para reposicionarse.
-                            }
-                        }
-                        //Debemos redibujar en condiciones
-                    }
-                }
-            }
-        }             
-    } while (haveToVisit.length !=0);
-}
-*/
-
-    assignNeighbors(creatingTerritory,foundTerritory) {
-
-        for (let assignNeighbors of foundTerritory){
-            creatingTerritory.addNeighbor(assignNeighbors);
-        }
-    }
-
-    search(name) {
-        for (let item of this.territories) {
-            if (item.territory.getName() === name) {
-                return item;
-            }
-        }
-    }
+    /*
     
     recalculateCx(degrees){
         
