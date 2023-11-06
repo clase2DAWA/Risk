@@ -6,9 +6,10 @@ import { RISK } from "./Game.js"
             this.name = name;
             this.color = color;
             //this.army = army;
+            this.x = null;
+            this.y = null;
             this.neighbors=[];
-            this.x = 0;
-            this.y = 0;
+
         }
 
         getName() {

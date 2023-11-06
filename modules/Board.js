@@ -14,60 +14,93 @@ RISK.board = class {
         this.territories = [];
     }
 
+    //Función que inicia las principales funciones para generar la base de datos, introducir datos y dibujar los territorios
 
-    firstTerritory(){
+    start(SVG){
+        this.generateDatabase();
+        this.setData();
+        //this.draw(SVG);
+    }
 
-        for (let continents of map.continents){
-            for (let findFirstTerritory of continents.territories){
-                return findFirstTerritory.name;    
+    //Generamos un objeto jsonData para aplicarselo a los territorios creados y conseguir la recursividad.
+
+    generateDatabase () {
+
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                let jsonData = {
+                posx: 0,
+                posy: 0,
+                visited: false,
+                territory: null,
+                };
+            let newTerritory = new RISK.territory(territory.name, jsonData);
+            jsonData.territory = newTerritory;
+            this.territories.push(jsonData);
             }
+        }
+
+        // se recorren los territorios para asignar los vecinos a dichos territorios (este trozo de código lo hemos cogido prestado)
+
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                for (let neighbor of territory.neighbors) {
+                    this.search(territory.name).territory.addNeighbor(
+                    this.search(neighbor.name)
+                )};
+            } 
         }
     }
 
-    generateAndDraw (SVG) {
-
-        let haveToVisit = [this.firstTerritory()];
-        let territoryToVisit = haveToVisit.shift();
-        let y = 200;
-        let x = 200;
-        let lastcreatedTerritory;
-        let degrees;
-
-        do{
-            for ( let continents of map.continents){
-                for ( let territories of continents.territories){
-                    if (territories.name == territoryToVisit && !this.territories.includes(territories.name)){
-                        let creatingTerritory = new RISK.territory(territories.name,territories.color);
-                        creatingTerritory.setY(y);
-                        creatingTerritory.setX(x);
-
-                        for ( let neighbors of territories.neighbors){
-                            creatingTerritory.addNeighbor(neighbors);
-                            if (!this.territories.some(territory => territory.name === neighbors.name) && !haveToVisit.includes(neighbors.name)){
-                                haveToVisit.push(neighbors.name);
-                            }
-                        }
-                        this.territories.push(creatingTerritory);
-                        this.draw(SVG,creatingTerritory);
-
-                        territoryToVisit = haveToVisit.shift(); 
-                        for (let reference of this.territories){
-                            for ( let neighborReference of reference.neighbors){
-                                if (neighborReference.name==territoryToVisit){
-                                    degrees = neighborReference.degrees;
-                                    x += this.recalculateCx(x) + 50;
-                                    y += this.recalculateCy(y) + 50;
-                                    break;
-                                }
-                            }
-                            //Debemos redibujar en condiciones
-                        }
-                    }
-                }
-            }             
-        } while (haveToVisit.length !=0);
+    search(name) {
+        return this.territories.find(item => item.territory.getName() === name);
     }
 
+    //Trabajamos directamente sobre el array de this.territories
+
+    setData(){
+
+        while (this.territories.filter(territory => !territory.visited).length > 0 ){ 
+
+            let territory = this.nextUnvisitedTerritory();
+            territory.posx = 250;
+            territory.posy = 250;
+
+            if ( territory.territory.neighbors !=null){
+                for ( let visitNeighbors of territory.territory.neighbors){
+                    if (this.territories.includes(visitNeighbors) && !this.checkVisited(visitNeighbors.territory.name)){
+                        //condiciones draw sin determinar 
+                        this.markAsVisited(visitNeighbors);
+                        
+                    }
+                }
+            }
+            this.markAsVisited(territory);
+        }
+        console.log(this.territories);
+    }
+
+
+    nextUnvisitedTerritory(){
+        return this.territories.find(territory => !territory.visited);
+    }
+
+    checkVisited(territory){
+        return this.search(territory).visited;
+    }
+
+    markAsVisited(territory){
+        
+        let markTerritoryAs = this.search(territory.territory.name);
+        markTerritoryAs.visited = true;
+    }
+
+    draw(SVG){
+
+    }
+
+    /*
+    
     recalculateCx(degrees){
         
         let x = Math.cos(degrees * (Math.PI / 180)) * 40;
@@ -79,24 +112,6 @@ RISK.board = class {
         let y = Math.sin(degrees * (Math.PI / 180)) * 40;
         return y;
     }
-
-    /*drawLinesOnMap(SVG) {
-
-        for (let item of lines){
-
-            let line = document.createElementNS("http://www.w3.org/2000/svg" , "line");
-                        
-            line.setAttribute("x1", item.x1); 
-            line.setAttribute("y1", item.y1); 
-            line.setAttribute("x2", item.x2); 
-            line.setAttribute("y2", item.y2); 
-
-            line.setAttribute("stroke", "black"); 
-            line.setAttribute("stroke-width", "2");
-            
-            SVG.appendChild(line);
-        }
-    }*/
     
     draw(SVG,creatingTerritory){
 
@@ -125,50 +140,26 @@ RISK.board = class {
         
         SVG.appendChild(circle);
         SVG.appendChild(text);
-
     } 
+    
+    /*drawLinesOnMap(SVG) {
 
-    drawTerrainOnMap(SVG,creatingTerritory) {
+        for (let item of lines){
 
-        let y = 800;
-        let x = 800;
+            let line = document.createElementNS("http://www.w3.org/2000/svg" , "line");
+                        
+            line.setAttribute("x1", item.x1); 
+            line.setAttribute("y1", item.y1); 
+            line.setAttribute("x2", item.x2); 
+            line.setAttribute("y2", item.y2); 
 
-        for (let item of this.territories) {
+            line.setAttribute("stroke", "black"); 
+            line.setAttribute("stroke-width", "2");
             
-            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            let text = document.createElementNS("http://www.w3.org/2000/svg","text")
-            let tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            SVG.appendChild(line);
+        }
+    }*/
 
-            circle.setAttribute("cy", cy); 
-            circle.setAttribute("cx", cx); 
-            circle.setAttribute("r", 50);   
-            circle.setAttribute("fill", item.getColor()); 
-            circle.setAttribute("stroke", "Black");
-            circle.setAttribute("stroke-width", "0.1rem");
-            circle.setAttribute("name", creatingTerritory.name);
-
-
-            circle.addEventListener('click', function (){
-                console.log(item.getName())
-            });
-
-            text.setAttribute("y", cy); 
-            text.setAttribute("x", cx); 
-            text.setAttribute("text-anchor", "middle"); 
-            text.setAttribute("dy", ".1em");
-            text.setAttribute("fill", "White");
-            text.textContent = item.getName(); 
-            text.classList.add("countryName");
-
-            tspan.setAttribute("x", item.getX());
-            tspan.setAttribute("dy", "1.2em"); 
-            tspan.textContent = item.getArmy();
-
-            SVG.appendChild(circle);
-            //text.appendChild(tspan);
-            SVG.appendChild(text);
-        }         
-    }
 }
 
 export { RISK };
