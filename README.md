@@ -4,7 +4,7 @@
 
 - Tatiana Fuentes Cruz: estamos haciendo el constructor correctamente y me he enterado hasta ahora de todo y el por qué se hace todo. Hemos dibujado los territorios y los vecinos correctamente sin repetir ningún territorio, y me he enterado de todo y de su finalidad.
 - Samuel Sanchez Heredia: estamos haciendo el constructor correctamente y me he enterado hasta ahora de todo y el por qué se hace todo. Hemos dibujado los territorios y los vecinos correctamente sin repetir ningún territorio, y me he enterado de todo y de su finalidad.
-- Alejandro Fernandez: me he enterado de la creacion de los territorios con su metainformación.
+- Alejandro Fernandez: me he enterado de la creacion de los territorios con su metainformación. He entendido todos los cambios realizados.
 - Alejandro Aguilera: me he enterado el porque de del constructor y como añadir los metadatos.
 - Alejandro Rodrigo Rodriguez: He entendido todo correctamente, además hemos encontrado algunas mejoras al codigo.
 - Juan Carlos:
