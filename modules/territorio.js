@@ -3,7 +3,7 @@ class Territory {
     constructor(name) {
         this.name = name;
         this.army = 0;
-        this.neighbors=[];
+        this.neighbors = [];
     }
 
     getName() {
@@ -14,8 +14,11 @@ class Territory {
         this.army = army;
     }
 
-    addNeighbor(neighbor){
-        this.neighbors.push(neighbor);
+    addNeighbor(neighbor, territory) {
+        this.neighbors.push({
+            "neighbor": neighbor,
+            "territory": territory
+        });
     }
 
     
