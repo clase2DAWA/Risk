@@ -5,6 +5,62 @@ import { map } from "./map.js";
 
 RISK.board = class {
 
+    constructor() {
+        this.territories = [];
+        this.metaData = [];
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                let element = new RISK.territory(territory.name);
+                this.territories.push(element);
+                this.metaData.push({
+                    "x": 0,
+                    "y": 0,
+                    "territory": element
+                });
+            }
+        }
+        for (let item of map.continents) {
+            for (let territory of item.territories) {
+                for (let neighbor of territory.neighbors) {
+                    this.territories.find((element) => element.name === territory.name)
+                        .addNeighbor(neighbor, this.territories.find(
+                            (element) => element.name === neighbor.name
+                        ));
+                }
+            }
+        }
+    }
+
+
+    asignarPosicion() {
+        let visited = [];
+        let land = this.metaData.pop();
+        visited.push(land.territory);
+        land.x = 500;
+        land.y = 500;
+        let support = [land.territory];
+        let territory;  
+        while (support.length) {
+            
+            territory = support.at(-1);
+
+            for (let neighbor of territory.neighbors){
+                if (!visited.includes(neighbor.territory )){
+                    visited.push(neighbor.territory);
+                    //draw
+                    if (!support.includes(neighbor.territory)){
+                        support.push(neighbor.territory);
+                    }
+                }            
+            }
+            support.shift();
+        }                    
+    }
+    
+    
+
+
+    /*
     constructor(board,players,maxHeight,maxWidth) {
 
         this.board = board;
@@ -42,9 +98,14 @@ RISK.board = class {
 
         // se recorren los territorios para asignar los vecinos a dichos territorios (este trozo de código lo hemos cogido prestado)
 
+
+
         for (let item of map.continents) {
             for (let territory of item.territories) {
                 for (let neighbor of territory.neighbors) {
+                    
+                    this.territories.find()
+
                     this.search(territory.name).territory.addNeighbor(
                     this.search(neighbor.name)
                 )};

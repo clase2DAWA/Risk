@@ -2,9 +2,11 @@ import { RISK } from "./Board.js";
 
 const SVG = document.getElementById("map"); 
 
-const BOARD1 = new RISK.board(1,900,1200);
+const BOARD1 = new RISK.board();
 
-BOARD1.start(SVG);
+console.log(BOARD1);
+
+BOARD1.asignarPosicion();
 //BOARD1.drawLinesOnMap(SVG);
 
 

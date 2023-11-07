@@ -46,7 +46,7 @@ let map={
                     "color": "blue",
                     "neighbors":[
                         {
-                            "name":"G.Bretain",
+                            "name":"G.Britain",
                             "degrees":0
                         },
                         {
