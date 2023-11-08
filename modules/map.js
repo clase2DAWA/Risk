@@ -9,15 +9,15 @@ let map = {
           neighbors: [
             {
               name: "Great Britain",
-              degrees: 0,
+              degrees: 270,
             },
             {
-              name: "Northen Europe",
-              degrees: 45,
+              name: "Northern Europe",
+              degrees: 315,
             },
             {
               name: "Southern Europe",
-              degrees: 90,
+              degrees: 0,
             },
           ],
         },
@@ -26,23 +26,19 @@ let map = {
           neighbors: [
             {
               name: "Southern Europe",
-              degrees: 180,
+              degrees: 90,
             },
             {
               name: "Scandinavia",
-              degrees: 0,
-            },
-            {
-              name: "Great Britain",
               degrees: 270,
             },
             {
-              name: "Western Europe",
-              degrees: 225,
+              name: "Great Britain",
+              degrees: 180,
             },
             {
-              name: "Ukraine",
-              degrees: 90,
+              name: "Western Europe",
+              degrees: 135,
             },
           ],
         },
@@ -51,15 +47,11 @@ let map = {
           neighbors: [
             {
               name: "Western Europe",
-              degrees: 270,
+              degrees: 180,
             },
             {
               name: "Northern Europe",
-              degrees: 0,
-            },
-            {
-              name: "Ukraine",
-              degrees: 45,
+              degrees: 270,
             },
           ],
         },
@@ -68,15 +60,15 @@ let map = {
           neighbors: [
             {
               name: "Western Europe",
-              degrees: 180,
-            },
-            {
-              name: "Northern Europe",
               degrees: 90,
             },
             {
+              name: "Northern Europe",
+              degrees: 0,
+            },
+            {
               name: "Scandinavia",
-              degrees: 45,
+              degrees: 315,
             },
           ],
         },
@@ -84,22 +76,14 @@ let map = {
           name: "Scandinavia",
           neighbors: [
             {
-              name: "Ukraine",
+              name: "Great Britain",
               degrees: 135,
             },
             {
-              name: "Great Britain",
-              degrees: 225,
-            },
-            {
               name: "Northern Europe",
-              degrees: 180,
+              degrees: 90,
             },
           ],
-        },
-        {
-          name: "Ukraine",
-          neighbors: [],
         },
       ],
     },
