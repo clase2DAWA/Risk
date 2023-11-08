@@ -6,22 +6,21 @@ let map = {
             {
                 "name": "Great Britain",
                 "neighbors": [
-                    { "name": "Westem Europe", "grados": 920 },
-                    { "name": "Iceland", "grados": 120 }
+                    { "name": "Westem Europe", "grados": 0 },
+                    { "name": "Iceland", "grados": 180 }
                     
                 ],
             },
             {
                 "name": "Iceland",
                 "neighbors": [
-                    { "name": "Scandinavia", "grados": 210 },
-                    { "name": "Great Britain", "grados": 430 }
+                    { "name": "Great Britain", "grados": 0 }
                 ],
             },
             {
                 "name": "Westem Europe",
                 "neighbors": [
-                    { "name": "Great Britain", "grados": 0 }
+                    { "name": "Great Britain", "grados": 180 }
                     
                     
                 ],
