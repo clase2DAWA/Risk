@@ -13,9 +13,11 @@ class Territory {
     this.army = army;
   }
 
-  // Añadir vecino
-  addNeighbor(neighbor) {
-    this.neighbors.push(neighbor);
+  addNeighbor(neighbor, territory) {
+    this.neighbors.push({
+      neighbor: neighbor,
+      territory: territory,
+    });
   }
 }
 
