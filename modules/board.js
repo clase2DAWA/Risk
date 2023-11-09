@@ -42,9 +42,9 @@ class Board {
 
     while (support.length) {
       let territoryTemp = support.at(-1);
-      // Guardamos la metaData del padre para usarla
+      // Guardamos la metaData del padre para tenerla accesibe y 
+      // cambiando dependiendo del objeto en el que iteremos
       fatherData = this.metaData.get(territoryTemp)
-      // console.log(fatherData);
       let a = territoryTemp.neighbors;
       support.pop();
 
@@ -64,9 +64,7 @@ class Board {
 
   draw() {
     let territories = Array.from(this.metaData.keys());
-    console.log(territories);
     for (let item of territories) {
-      console.log("HOLA");
       let circle = document.createElementNS(
         "http://www.w3.org/2000/svg",
         "circle"
@@ -75,7 +73,6 @@ class Board {
       circle.setAttribute("cy", this.metaData.get(item).y);
       circle.setAttribute("r", 40);
       circle.setAttribute("fill", "red");
-      console.log(circle);
       this.board.appendChild(circle);
       circle.addEventListener("click", function () {
         console.log(item.getName());
