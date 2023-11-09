@@ -5,25 +5,25 @@ class Board {
 
     constructor(board) {
         this.board = board;
-        this.territories = [];
-        this.metaData = [];
+        this.metaData = new Map();
+        let territories = [];
         for (let item of map.continents) {
             for (let territory of item.territories) {
                 let element = new Territory(territory.name);
-                this.territories.push(element);
-                this.metaData.push({
+                territories.push(element);
+                this.metaData.set(element, {
                     "x": 0,
                     "y": 0,
-                    "territory": element
-                });
+                    "visited": false
+                })
             }
         }
 
         for (let item of map.continents) {
             for (let territory of item.territories) {
                 for (let neighbor of territory.neighbors) {
-                    this.territories.find((element) => element.name === territory.name)
-                        .addNeighbor(neighbor, this.territories.find(
+                    territories.find((element) => element.name === territory.name)
+                        .addNeighbor(neighbor, territories.find(
                             (element) => element.name === neighbor.name
                         ));
                     /*
@@ -33,65 +33,33 @@ class Board {
                 }
             }
         }
-
-        console.log(this.territories);
     }
 
-    /*
-    search(name) {
+    
+    search(territory) {
         for (let item of this.territories) {
-            if (item.getName() === name) {
+            if (item === territory) {
                 return item;
             }
         }
     }
-    */
+    
 
     asignarPosicion() {
-        let visited = [];
-        let land = this.metaData.pop();
-        visited.push(land);
-        land.x = 500;
-        land.y = 500;
-        let support = [land];
+        let land = this.metaData.keys().next();
+        let support = [land.value];
         while (support.length) {
-            land = null;
-
-            // funciona
-            // for (let item of support.at(-1).territory.neighbors) {
-            //     let landa = this.metaData.find((element2) => item.territory === element2.territory);
-            //     if (landa!= null) {
-            //         land = landa;
-            //     }
-            // }
-
-            // funciona
-            land = this.metaData.find((element) => {
-                return support.at(-1).territory.neighbors.find((element2) => element.territory === element2.territory)});
-
-            // funciona
-            // for (let item of support.at(-1).territory.neighbors) {
-            //     for (let element of this.metaData) {
-            //         if (item.territory === element.territory) {
-            //             land = element;
-            //         }
-            //     }
-            // }
-            if (land != null) {
-                visited.push(land);
-                support.push(land);
-                land.x = 500;
-                land.y = 500;
-                this.metaData.splice(this.metaData.indexOf(land),1);
-            } else {
-                support.pop();
+            let territoryTemp = support.at(-1).neighbors;
+            support.pop();
+            for(let item of territoryTemp){
+                let c = this.metaData.get(item.territory);
+                if(!c.visited) {
+                    c.visited = true;
+                    support.push(item.territory);
+                }
             }
-            
         }
-        console.log("fin");
-        for (let element of visited) {
-            console.log(element);
-        }
+        console.log(this.metaData);
     }
 
     draw() {
