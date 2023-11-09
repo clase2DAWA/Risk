@@ -1,5 +1,5 @@
 import { Territory } from "./territory.js";
-import { map } from "./map2.js";
+import { map } from "./map.js";
 
 class Board {
   constructor(board) {
@@ -42,6 +42,8 @@ class Board {
 
     while (support.length) {
       let territoryTemp = support.at(-1);
+      // Guardamos la metaData del padre para usarla
+      fatherData = this.metaData.get(territoryTemp)
       // console.log(fatherData);
       let a = territoryTemp.neighbors;
       support.pop();
