@@ -40,10 +40,6 @@ class Board {
             for(let item of a){
                 let c = this.metaData.get(item.territory);
                 if(!c.visited) {
-                    let oldY = c.y;
-                    let oldX = c.x;
-                    c.x = (Math.cos(degrees * (Math.PI / 180)) * 40) + oldX;
-                    c.y = (Math.sin(degrees * (Math.PI / 180)) * 40) + oldY;
                     c.visited = true;
                     support.push(item.territory);
                 }
