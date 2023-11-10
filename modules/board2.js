@@ -22,16 +22,32 @@ class Board {
         for (let item of map.continents) {
             for (let territory of item.territories) {
                 for (let neighbor of territory.neighbors) {
-                    territories.find((element) => element.name === territory.name).addNeighbor(neighbor, territories
-                    .find((element) => element.name === neighbor.name));
+                    territories.find((element) => element.name === territory.name)
+                        .addNeighbor(neighbor, territories.find(
+                            (element) => element.name === neighbor.name
+                        ));
+                    /*
+                    this.search(territory.name).addNeighbor(neighbor,
+                        this.search(neighbor.name));
+                    */
                 }
             }
         }
         console.log(this.metaData);
     }
 
+    /*
+    search(name) {
+        for (let item of this.territories) {
+            if (item.getName() === name) {
+                return item;
+            }
+        }
+    }
+    */
+
     asignarPosicion() {
-        let land = this.metaData.keys().next().value;
+        let land = this.metaData.keys().next();
         let support = [land];
         while (support.length) {
             let territoryTemp = support.at(-1);
@@ -40,10 +56,6 @@ class Board {
             for(let item of a){
                 let c = this.metaData.get(item.territory);
                 if(!c.visited) {
-                    let oldY = c.y;
-                    let oldX = c.x;
-                    c.x = (Math.cos(degrees * (Math.PI / 180)) * 40) + oldX;
-                    c.y = (Math.sin(degrees * (Math.PI / 180)) * 40) + oldY;
                     c.visited = true;
                     support.push(item.territory);
                 }
@@ -92,5 +104,7 @@ class Board {
             }
         }
     }
+
+
 }
 export { Board };
