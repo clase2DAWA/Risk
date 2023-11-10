@@ -1,5 +1,3 @@
-// AÑADIREMOS x e y a cada pais
-
 let map={
     "continents":[
         {

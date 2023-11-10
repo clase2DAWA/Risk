@@ -4,177 +4,50 @@ import { map } from "./map.js";
 //import { lines } from "./lines.js";
 
 RISK.board = class {
-
-    constructor() {
-        this.territories = [];
-        this.metaData = [];
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
-                let element = new RISK.territory(territory.name);
-                this.territories.push(element);
-                this.metaData.push({
-                    "x": 0,
-                    "y": 0,
-                    "territory": element
-                });
+        constructor() {
+            this.metaData = new Map();
+            let territories = [];
+            for (let item of map.continents) {
+                for (let territory of item.territories) {
+                    let element = new RISK.territory(territory.name);
+                    territories.push(element);
+                    this.metaData.set(element, {
+                        "x": 0,
+                        "y": 0,
+                        "visited": false
+                    })
+                }
             }
-        }
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
-                for (let neighbor of territory.neighbors) {
-                    this.territories.find((element) => element.name === territory.name)
-                        .addNeighbor(neighbor, this.territories.find(
-                            (element) => element.name === neighbor.name
-                        ));
+    
+            for (let item of map.continents) {
+                for (let territory of item.territories) {
+                    for (let neighbor of territory.neighbors) {
+                        territories.find((element) => element.name === territory.name)
+                            .addNeighbor(neighbor, territories.find(
+                                (element) => element.name === neighbor.name
+                            ));
+                    }
                 }
             }
         }
-    }
-
-
-    asignarPosicion() {
-        let visited = [];
-        let land = this.metaData.pop();
-        visited.push(land.territory);
-        land.x = 500;
-        land.y = 500;
-        let support = [land.territory];
-        let territory;  
-        while (support.length) {
+    
+        asignarPosicion() {
+            let landData = this.metaData.keys().next().value;
+            let support = [landData];
+            this.metaData.get(landData).visited = true;
+            let territory,element;
             
-            territory = support.at(-1);
-
-            for (let neighbor of territory.neighbors){
-                if (!visited.includes(neighbor.territory )){
-                    visited.push(neighbor.territory);
-                    //draw
-                    if (!support.includes(neighbor.territory)){
-                        support.push(neighbor.territory);
-                    }
-                }            
-            }
-            support.shift();
-        }                    
-    }
-    
-    
-
-
-    /*
-    constructor(board,players,maxHeight,maxWidth) {
-
-        this.board = board;
-        this.players = players;
-        this.maxHeight = maxHeight;
-        this.maxWidth = maxWidth;
-        this.territories = [];
-    }
-
-    //Función que inicia las principales funciones para generar la base de datos, introducir datos y dibujar los territorios
-
-    start(SVG){
-        this.generateDatabase();
-        this.setData();
-        //this.draw(SVG);
-    }
-
-    //Generamos un objeto jsonData para aplicarselo a los territorios creados y conseguir la recursividad.
-
-    generateDatabase () {
-
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
-                let jsonData = {
-                posx: 0,
-                posy: 0,
-                visited: false,
-                territory: null,
-                };
-            let newTerritory = new RISK.territory(territory.name, jsonData);
-            jsonData.territory = newTerritory;
-            this.territories.push(jsonData);
+            while (support.length >0) {
+                territory = support.at(-1);
+                this.metaData.get(territory).visited = true;
+                element = territory.neighbors.find(item=> !this.metaData.get(item.territory).visited);
+                element !=null
+                ? support.push(element.territory)
+                : support.pop();
             }
         }
-
-        // se recorren los territorios para asignar los vecinos a dichos territorios (este trozo de código lo hemos cogido prestado)
-
-
-
-        for (let item of map.continents) {
-            for (let territory of item.territories) {
-                for (let neighbor of territory.neighbors) {
-                    
-                    this.territories.find()
-
-                    this.search(territory.name).territory.addNeighbor(
-                    this.search(neighbor.name)
-                )};
-            } 
-        }
-    }
-
-    search(name) {
-        return this.territories.find(item => item.territory.getName() === name);
-    }
-
-    //Trabajamos directamente sobre el array de this.territories
-
-    setData(){
-
-        while (this.territories.filter(territory => !territory.visited).length > 0 ){ 
-
-            let territory = this.nextUnvisitedTerritory();
-            territory.posx = 250;
-            territory.posy = 250;
-
-            if ( territory.territory.neighbors !=null){
-                for ( let visitNeighbors of territory.territory.neighbors){
-                    if (this.territories.includes(visitNeighbors) && !this.checkVisited(visitNeighbors.territory.name)){
-                        //condiciones draw sin determinar 
-                        this.markAsVisited(visitNeighbors);
-                        
-                    }
-                }
-            }
-            this.markAsVisited(territory);
-        }
-        console.log(this.territories);
-    }
-
-
-    nextUnvisitedTerritory(){
-        return this.territories.find(territory => !territory.visited);
-    }
-
-    checkVisited(territory){
-        return this.search(territory).visited;
-    }
-
-    markAsVisited(territory){
-        
-        let markTerritoryAs = this.search(territory.territory.name);
-        markTerritoryAs.visited = true;
-    }
-
-    draw(SVG){
-
-    }
-
-    /*
     
-    recalculateCx(degrees){
-        
-        let x = Math.cos(degrees * (Math.PI / 180)) * 40;
-        return x;
-    }
-
-    recalculateCy(degrees){
-
-        let y = Math.sin(degrees * (Math.PI / 180)) * 40;
-        return y;
-    }
-    
-    draw(SVG,creatingTerritory){
+    /*draw(SVG,createTerritory){
 
         let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         let text = document.createElementNS("http://www.w3.org/2000/svg","text")
